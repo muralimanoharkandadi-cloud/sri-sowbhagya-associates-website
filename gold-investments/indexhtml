@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Investment Solutions | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Explore Sovereign Gold Bonds (SGB), Gold ETFs, and Digital Gold strategies with Sri Sowbhagya Associates.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo">Sri Sowbhagya <span>Associates</span></a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/insurance/" class="nav-link">Insurance</a></li>
+          <li><a href="/mutual-funds/" class="nav-link">Mutual Funds</a></li>
+          <li><a href="/gold-investments/" class="nav-link" style="color:var(--primary); font-weight:700;">Gold Investments</a></li>
+          <li><a href="/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">Talk to Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section-padding">
+    <div class="container">
+      <h1 class="section-title">Gold Asset Diversification</h1>
+      <p class="section-subtitle">Hedge your portfolio with sovereign and digital gold instruments.</p>
+
+      <div class="card-grid">
+        <div class="interactive-card">
+          <span class="card-icon">🏛️</span>
+          <h2 class="card-title">Sovereign Gold Bonds (SGB)</h2>
+          <p class="card-desc">Government-backed gold securities earning annual interest payouts alongside capital appreciation.</p>
+        </div>
+        <div class="interactive-card">
+          <span class="card-icon">📈</span>
+          <h2 class="card-title">Gold ETFs</h2>
+          <p class="card-desc">Exchange Traded Funds tracking real-time domestic gold prices with maximum liquidity and zero storage costs.</p>
+        </div>
+        <div class="interactive-card">
+          <span class="card-icon">📱</span>
+          <h2 class="card-title">Gold Mutual Funds</h2>
+          <p class="card-desc">Fund-of-funds investing directly in gold ETFs without requiring a Demat account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

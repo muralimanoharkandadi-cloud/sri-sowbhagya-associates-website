@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutual Funds & Investment Solutions | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Explore structured Mutual Fund strategies, SIP options, Equity, Debt, and Hybrid growth instruments.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo">Sri Sowbhagya <span>Associates</span></a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/insurance/" class="nav-link">Insurance</a></li>
+          <li><a href="/mutual-funds/" class="nav-link" style="color:var(--primary); font-weight:700;">Mutual Funds</a></li>
+          <li><a href="/gold-investments/" class="nav-link">Gold Investments</a></li>
+          <li><a href="/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">Talk to Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section-padding">
+    <div class="container">
+      <h1 class="section-title">Mutual Fund & Wealth Building Strategies</h1>
+      <p class="section-subtitle">Disciplined portfolio options aligned with your horizon and risk profile.</p>
+
+      <div class="card-grid">
+        <div class="interactive-card">
+          <span class="card-icon">📊</span>
+          <h2 class="card-title">Systematic Investment Plans (SIP)</h2>
+          <p class="card-desc">Automated, rupee-cost-averaging investment pathways designed for disciplined long-term wealth accumulation.</p>
+        </div>
+        <div class="interactive-card">
+          <span class="card-icon">🚀</span>
+          <h2 class="card-title">Equity Mutual Funds</h2>
+          <p class="card-desc">Capital appreciation strategies focused on large-cap, mid-cap, multi-cap, and sector-oriented businesses.</p>
+        </div>
+        <div class="interactive-card">
+          <span class="card-icon">🛡️</span>
+          <h2 class="card-title">Debt / Fixed Income Funds</h2>
+          <p class="card-desc">Capital preservation instruments offering lower volatility and steady income options.</p>
+        </div>
+        <div class="interactive-card">
+          <span class="card-icon">⚖️</span>
+          <h2 class="card-title">Hybrid Asset Allocation</h2>
+          <p class="card-desc">Balanced funds dynamically combining equity growth with debt stability.</p>
+        </div>
+      </div>
+
+      <div class="disclosure-box">
+        <strong>Important Regulatory Disclosure:</strong> Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.
+      </div>
+    </div>
+  </section>
+</body>
+</html>
