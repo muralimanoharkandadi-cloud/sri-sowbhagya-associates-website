@@ -188,6 +188,19 @@ a:hover, a:focus {
   gap: 1.5rem;
 }
 
+/* Symmetric wrapping layout: centers a leftover last row instead of stretching it */
+.card-flex-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card-flex-center > * {
+  flex: 1 1 260px;
+  max-width: 300px;
+}
+
 .interactive-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
