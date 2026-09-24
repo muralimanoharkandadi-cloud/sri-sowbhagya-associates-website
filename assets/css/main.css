@@ -148,6 +148,7 @@ a:hover, a:focus {
 
 .btn-primary:hover {
   background-color: var(--secondary-light);
+  color: #1A202C;
   text-decoration: none;
 }
 
@@ -159,6 +160,7 @@ a:hover, a:focus {
 
 .btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
   text-decoration: none;
 }
 
