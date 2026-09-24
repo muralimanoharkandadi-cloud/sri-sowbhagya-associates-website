@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sri-sowbhagya-associates.netlify.app/sitemap.xml
+Sitemap: https://srisowbhagyaassociates.com/sitemap.xml
