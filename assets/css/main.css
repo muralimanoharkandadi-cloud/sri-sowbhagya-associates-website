@@ -95,6 +95,66 @@ a:hover, a:focus {
   font-size: 0.95rem;
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 64px;
+    padding: 0.6rem 0;
+  }
+
+  .brand-logo {
+    font-size: 1.05rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  nav {
+    flex-basis: 100%;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    align-items: stretch;
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .nav-menu.nav-menu-open {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .nav-menu li a.nav-link {
+    display: block;
+    padding: 0.85rem 0.25rem;
+  }
+
+  .nav-menu li a.btn {
+    display: inline-block;
+    margin: 0.75rem 0.25rem 0.25rem;
+  }
+}
+
 .nav-link:hover {
   color: var(--primary-light);
   text-decoration: none;
