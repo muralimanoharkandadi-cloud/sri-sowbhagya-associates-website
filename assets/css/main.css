@@ -222,6 +222,50 @@ a:hover, a:focus {
   margin-bottom: 1rem;
 }
 
+/* Image-backdrop card: photo background with floating text overlay */
+.backdrop-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  transition: var(--transition);
+}
+
+.backdrop-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,20,35,0.92) 0%, rgba(10,20,35,0.55) 50%, rgba(10,20,35,0.05) 100%);
+}
+
+.backdrop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.backdrop-card-content {
+  position: relative;
+  z-index: 1;
+  padding: 1.75rem;
+}
+
+.backdrop-card-content .card-title {
+  color: #FFFFFF;
+}
+
+.backdrop-card-content .card-desc {
+  color: #E2E8F0;
+}
+
+.backdrop-card-content a {
+  color: var(--secondary-light);
+  font-weight: 700;
+}
+
 /* Interactive Finder Component */
 .finder-container {
   background: var(--bg-surface);
