@@ -425,3 +425,27 @@ a:hover, a:focus {
   outline: 2px solid var(--secondary);
   outline-offset: 2px;
 }
+/* Back navigation bar, shown at the top of every sub-page */
+.back-bar {
+  background: #F1F5F9;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.back-bar .container {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-light);
+}
+
+.back-link:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
