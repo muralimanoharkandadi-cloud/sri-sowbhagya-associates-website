@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Insurance Cover Calculator | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Find the right health insurance cover for your family, parents and city. Get a suggested family floater, super top-up and senior citizen plan in seconds.">
+  <link rel="canonical" href="https://srisowbhagyaassociates.com/tools/health-cover/">
+  <meta property="og:title" content="Health Insurance Cover Calculator | Sri Sowbhagya Associates">
+  <meta property="og:description" content="Find the right health insurance cover for your family, parents and city. Get a suggested family floater, super top-up and senior citizen plan in seconds.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://srisowbhagyaassociates.com/tools/health-cover/">
+
+  <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/tools.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/assets/images/ssa-logo-header.png" alt="" style="height: 44px; width: auto; display: block;">
+        <img src="/assets/images/ssa-wordmark.png" alt="Sri Sowbhagya Associates &mdash; Protection & Growth" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/insurance/" class="nav-link">Insurance</a></li>
+          <li><a href="/mutual-funds/" class="nav-link">Mutual Funds</a></li>
+          <li><a href="/gold-investments/" class="nav-link">Gold Investments</a></li>
+          <li><a href="/tools/" class="nav-link" style="color:var(--primary); font-weight:700;">Calculators</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+          <li><a href="/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">Talk to Us</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="back-bar">
+    <div class="container">
+      <a class="back-link" href="/tools/">&larr; All calculators</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <h1>How much health cover does your family need?</h1>
+        <p>Tell us who needs cover and where you live. You get a suggested floater, a top-up for large bills, and a separate plan for parents if needed.</p>
+      </div>
+    </section>
+
+    <div class="container tool-layout">
+      <form class="tool-panel" id="calc" onsubmit="return false;">
+        <h2>Your family</h2>
+        <p class="panel-note">The plan updates as you choose. Nothing is sent until you ask for a review.</p>
+        <fieldset class="tool-group">
+          <legend>Where you'll be treated</legend>
+            <div class="field" role="radiogroup" aria-labelledby="city-label">
+              <span class="label" id="city-label">City type</span>
+              <div class="seg"><label><input type="radio" name="city" value="1000000" checked><span>Hyderabad or another metro</span></label><label><input type="radio" name="city" value="750000"><span>Other large city</span></label><label><input type="radio" name="city" value="500000"><span>Smaller town</span></label></div>
+            </div>
+        </fieldset>
+        <fieldset class="tool-group">
+          <legend>Who needs cover</legend>
+            <div class="field">
+              <label for="selfage">Age of the eldest adult in your family plan</label>
+              <input id="selfage" type="number" inputmode="numeric" min="18" max="80" step="1" value="34">
+              <span class="hint">You or your spouse, whoever is older.</span>
+            </div>
+            <div class="field" role="radiogroup" aria-labelledby="spouse-label">
+              <span class="label" id="spouse-label">Spouse</span>
+              <div class="seg"><label><input type="radio" name="spouse" value="0"><span>No</span></label><label><input type="radio" name="spouse" value="1" checked><span>Yes</span></label></div>
+            </div>
+            <div class="field" role="radiogroup" aria-labelledby="kids-label">
+              <span class="label" id="kids-label">Children</span>
+              <div class="seg"><label><input type="radio" name="kids" value="0"><span>None</span></label><label><input type="radio" name="kids" value="1" checked><span>1</span></label><label><input type="radio" name="kids" value="2"><span>2</span></label><label><input type="radio" name="kids" value="3"><span>3 or more</span></label></div>
+            </div>
+            <div class="field" role="radiogroup" aria-labelledby="parents-label">
+              <span class="label" id="parents-label">Parents to cover</span>
+              <div class="seg"><label><input type="radio" name="parents" value="0" checked><span>None</span></label><label><input type="radio" name="parents" value="1"><span>One</span></label><label><input type="radio" name="parents" value="2"><span>Both</span></label></div>
+            </div>
+          <div id="parent-age-wrap">
+            <div class="field">
+              <label for="parentage">Eldest parent's age</label>
+              <input id="parentage" type="number" inputmode="numeric" min="40" max="95" step="1" value="62">
+              
+            </div>
+          </div>
+            <div class="field" role="radiogroup" aria-labelledby="condition-label">
+              <span class="label" id="condition-label">Does anyone have an ongoing condition such as diabetes, BP or thyroid?</span>
+              <div class="seg"><label><input type="radio" name="condition" value="no" checked><span>No</span></label><label><input type="radio" name="condition" value="yes"><span>Yes</span></label><label><input type="radio" name="condition" value="skip"><span>Prefer not to say</span></label></div>
+            </div>
+        </fieldset>
+        <fieldset class="tool-group">
+          <legend>Cover you already have</legend>
+            <div class="field">
+              <label for="existing">Personal health cover (your own policy)</label>
+              <div class="money"><input id="existing" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              
+            </div>
+            <div class="field">
+              <label for="employer">Employer group cover</label>
+              <div class="money"><input id="employer" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">Shown separately. It usually ends when you leave the job, so it isn't counted toward your own plan.</span>
+            </div>
+        </fieldset>
+      </form>
+        <aside class="result-card" aria-live="polite">
+          <p class="r-label">Suggested family floater cover</p>
+          <p class="r-figure" id="r-figure">&mdash;</p>
+          <p class="r-sub" id="r-sub"></p>
+          <ul class="ledger" id="r-ledger"></ul>
+          <ul class="r-points" id="r-points"></ul>
+          <div class="r-actions">
+            <a class="btn btn-primary" href="#review">Get this plan reviewed</a>
+            <a class="btn btn-wa js-wa-result" href="https://wa.me/919246582445" target="_blank" rel="noopener">Send this result on WhatsApp</a>
+          </div>
+          <p class="fine">Indicative estimate for planning only. Final cover, premium and eligibility are decided by the insurer after underwriting.</p>
+        </aside>
+    </div>
+
+    <section class="method">
+      <div class="container">
+        <details>
+          <summary>How this plan is worked out</summary>
+          <div><ul>
+            <li>Base cover starts from typical hospital costs in your city type: &#8377;10 lakh for a metro like Hyderabad, &#8377;7.5 lakh for other large cities, &#8377;5 lakh for smaller towns.</li>
+            <li>A family floater adds 50% for a second adult and 25% per child, then moves up one level if the eldest adult is 45 or older.</li>
+            <li>Parents aged around 60 and above are usually better covered by a separate senior citizen policy, so their claims do not use up the family floater.</li>
+            <li>A super top-up adds large cover at a lower premium. It pays after a claim crosses the deductible, which we set equal to your base cover.</li>
+            <li>Amounts are rounded to the cover levels insurers typically offer.</li>
+          </ul></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="brands">
+      <div class="container">
+        <h2>Health plans we can compare for you</h2>
+        <p>We look at room rent limits, co-pay, waiting periods and hospital networks across our insurer tie-ups, not just the premium.</p>
+        <div class="brand-grid">
+          <div class="brand-item">
+            <h3>Care Health Insurance</h3>
+            <p>Care and Care Supreme family floater plans, senior citizen cover, critical illness and diabetes-specific cover, and maternity cover.</p>
+          </div>
+          <div class="brand-item">
+            <h3>TATA AIG Health Insurance</h3>
+            <p>Health cover including the MediPrime range, from a general insurer promoted by the Tata Group and AIG.</p>
+          </div>
+          <div class="brand-item">
+            <h3>Motilal Oswal insurance panel</h3>
+            <p>Through Motilal Oswal Financial Services Ltd (IRDAI Composite Corporate Agent, Reg. No. CA0579), with tie-ups across a panel of health insurers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-section" id="review">
+      <div class="container lead-wrap">
+        <div class="lead-copy">
+          <h2>Have your family plan reviewed, free</h2>
+          <p>Mr. SRK Prasad will compare policies that fit your result, explain waiting periods and exclusions clearly, and help with the proposal form. No obligation.</p>
+          <p>Prefer to talk now? Call <a href="tel:+919246582445">+91 92465 82445</a> or use the WhatsApp button.</p>
+        </div>
+        <form class="lead-form js-lead" name="tool-lead" method="POST" action="/tools/thanks/" data-netlify="true" netlify-honeypot="company-website" novalidate>
+          <input type="hidden" name="form-name" value="tool-lead">
+          <input type="hidden" name="tool" value="">
+          <input type="hidden" name="summary" value="">
+          <input type="hidden" name="interest" value="Health insurance">
+          <input type="hidden" name="source" value="direct">
+          <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+          <div class="field">
+            <label for="l-name">Your name</label>
+            <input id="l-name" name="name" type="text" autocomplete="name" required>
+            <span class="form-error js-name-error">Enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="l-phone">Mobile number</label>
+            <input id="l-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" required>
+            <span class="form-error js-phone-error">Enter a valid 10-digit Indian mobile number.</span>
+          </div>
+          <div class="field">
+            <label for="l-time">Best time to call</label>
+            <select id="l-time" name="call-time">
+              <option>Morning (9am to 12pm)</option>
+              <option>Afternoon (12pm to 4pm)</option>
+              <option>Evening (4pm to 8pm)</option>
+              <option>WhatsApp me instead</option>
+            </select>
+          </div>
+          <div class="field check-wrap">
+            <label class="check"><input type="checkbox" name="consent" value="yes"> I agree to be contacted by Sri Sowbhagya Associates by phone, SMS or WhatsApp about this enquiry.</label>
+            <span class="form-error js-consent-error">Please tick this box so we can contact you.</span>
+          </div>
+          <button class="btn btn-primary" type="submit">Request my free review</button>
+          <p class="consent">Your calculator result is attached to this request. We use your details only to respond to you. See our <a href="/privacy/">privacy policy</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="container">
+      <p class="tool-disclosure"><strong>Disclosure:</strong> This calculator gives an indicative plan only. Sum insured, waiting periods and exclusions vary by plan; please review policy wordings before purchase. Insurance is the subject matter of solicitation. IRDAI Agent Code: 9355098.</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sri Sowbhagya Associates</div>
+          <p style="font-size: 0.85rem; color: #94A3B8;">
+            Promoter: Mr. SRK Prasad<br>
+            Providing client-centered guidance across insurance, mutual funds, and gold investments.<br>
+            <a href="tel:+919246582445" style="color: #94A3B8;">+91 92465 82445</a>
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="/insurance/">Insurance Solutions</a></li>
+            <li><a href="/mutual-funds/">Mutual Funds &amp; SIPs</a></li>
+            <li><a href="/gold-investments/">Gold Investments</a></li>
+            <li><a href="/tools/">Planning Calculators</a></li>
+            <li><a href="/about.html">About Promoter</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal &amp; Regulatory</div>
+          <ul class="footer-links">
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+            <li><a href="/disclosures/">Regulatory Disclosures</a></li>
+            <li><a href="/grievance/">Grievance Redressal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #1E293B; padding-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #64748B;">
+        <p>Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Insurance is the subject matter of solicitation. Information provided on this website is for educational purposes and does not constitute formal financial advice.</p>
+        <p style="margin-top: 0.5rem;">&copy; 2026 Sri Sowbhagya Associates. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/tools.js"></script>
+  <script>
+(function () {
+  var S = window.SSA;
+  var LEVELS = [300000, 500000, 750000, 1000000, 1500000, 2000000, 2500000, 5000000, 10000000];
+  function level(x) { for (var i = 0; i < LEVELS.length; i++) if (LEVELS[i] >= x) return LEVELS[i]; return LEVELS[LEVELS.length - 1]; }
+  function nextLevel(x) { var i = LEVELS.indexOf(x); return i >= 0 && i < LEVELS.length - 1 ? LEVELS[i + 1] : x; }
+  function calc() {
+    var base = parseFloat(S.radio('city'));
+    var spouse = parseInt(S.radio('spouse'), 10), kids = parseInt(S.radio('kids'), 10), parents = parseInt(S.radio('parents'), 10);
+    var eldest = S.num('selfage'), pAge = S.num('parentage');
+    var existing = S.num('existing'), employer = S.num('employer');
+    var cond = S.radio('condition');
+    document.getElementById('parent-age-wrap').style.display = parents > 0 ? '' : 'none';
+
+    var adults = 1 + spouse;
+    var floater = level(base * (1 + 0.5 * (adults - 1) + 0.25 * kids));
+    if (eldest >= 45) floater = nextLevel(floater);
+    var gap = Math.max(0, floater - existing);
+    var topup = base >= 1000000 ? 5000000 : 2500000;
+    var parentCover = 0;
+    if (parents > 0) parentCover = level(base * (1 + 0.5 * (parents - 1)));
+
+    var members = adults + kids;
+    var who = adults === 2 ? 'you and your spouse' : 'you';
+    if (kids > 0) who += ' and ' + kids + (kids === 1 ? ' child' : ' children');
+    document.getElementById('r-figure').textContent = S.words(floater);
+    document.getElementById('r-sub').textContent = 'One floater policy covering ' + who + ' (' + members + (members === 1 ? ' person' : ' people') + ').';
+
+    var rows = [['Family floater base cover', S.inr(floater), '']];
+    if (existing > 0) rows.push(['Less your existing personal cover', '\u2212 ' + S.inr(Math.min(existing, floater)), 'minus']);
+    rows.push(['New base cover to buy', S.inr(gap), 'total']);
+    rows.push(['Super top-up (deductible ' + S.words(floater) + ')', S.inr(topup), '']);
+    if (parents > 0) rows.push(["Parents' separate policy", S.inr(parentCover), '']);
+    if (employer > 0) rows.push(['Employer cover (not counted)', S.inr(employer), '']);
+    document.getElementById('r-ledger').innerHTML = rows.map(function (r) {
+      return '<li class="' + r[2] + '"><span>' + r[0] + '</span><span>' + r[1] + '</span></li>';
+    }).join('');
+
+    var pts = [];
+    pts.push('Look for no room-rent limit or a single private room, so the full bill is paid in proportion.');
+    if (parents > 0 && pAge >= 60) pts.push('A senior citizen policy for your parents keeps their claims separate from the family floater.');
+    if (parents > 0 && pAge >= 75) pts.push('At 75 and above, fewer plans accept new entrants and co-pay is common. A review helps find what is available.');
+    if (cond === 'yes') pts.push('Declare every existing condition on the proposal form. Waiting periods for pre-existing conditions vary by plan, and some plans are built for conditions like diabetes.');
+    if (employer > 0) pts.push('Keep your own policy even with employer cover, so you stay protected between jobs and after retirement.');
+    if (spouse === 1 && eldest < 40) pts.push('If you are planning a family, ask about maternity cover and its waiting period.');
+    document.getElementById('r-points').innerHTML = pts.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+
+    S.setResult('health cover calculator',
+      'Suggested family floater: ' + S.words(floater) + ' for ' + who + ', super top-up ' + S.words(topup) +
+      (parents > 0 ? ", parents' policy " + S.words(parentCover) + ' (eldest parent ' + pAge + ')' : '') +
+      '\nEldest adult ' + eldest + ', existing personal cover ' + S.words(existing) + ', employer cover ' + S.words(employer));
+  }
+  document.getElementById('calc').addEventListener('input', calc);
+  document.getElementById('calc').addEventListener('change', calc);
+  document.addEventListener('DOMContentLoaded', calc);
+})();
+  </script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/whatsapp.js" defer></script>
+</body>
+</html>

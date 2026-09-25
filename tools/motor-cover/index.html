@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motor Insurance IDV Calculator | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Estimate the insured declared value (IDV) of your car, two-wheeler or commercial vehicle, see your no claim bonus, and find the add-ons worth buying.">
+  <link rel="canonical" href="https://srisowbhagyaassociates.com/tools/motor-cover/">
+  <meta property="og:title" content="Motor Insurance IDV Calculator | Sri Sowbhagya Associates">
+  <meta property="og:description" content="Estimate the insured declared value (IDV) of your car, two-wheeler or commercial vehicle, see your no claim bonus, and find the add-ons worth buying.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://srisowbhagyaassociates.com/tools/motor-cover/">
+
+  <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/tools.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/assets/images/ssa-logo-header.png" alt="" style="height: 44px; width: auto; display: block;">
+        <img src="/assets/images/ssa-wordmark.png" alt="Sri Sowbhagya Associates &mdash; Protection & Growth" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/insurance/" class="nav-link">Insurance</a></li>
+          <li><a href="/mutual-funds/" class="nav-link">Mutual Funds</a></li>
+          <li><a href="/gold-investments/" class="nav-link">Gold Investments</a></li>
+          <li><a href="/tools/" class="nav-link" style="color:var(--primary); font-weight:700;">Calculators</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+          <li><a href="/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">Talk to Us</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="back-bar">
+    <div class="container">
+      <a class="back-link" href="/tools/">&larr; All calculators</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <h1>What is your vehicle insured for?</h1>
+        <p>Estimate your IDV, check your no claim bonus, and see which add-ons suit your vehicle before you renew.</p>
+      </div>
+    </section>
+
+    <div class="container tool-layout">
+      <form class="tool-panel" id="calc" onsubmit="return false;">
+        <h2>Your vehicle</h2>
+        <p class="panel-note">The estimate updates as you choose. Nothing is sent until you ask for a review.</p>
+        <fieldset class="tool-group">
+          <legend>Vehicle</legend>
+            <div class="field" role="radiogroup" aria-labelledby="vtype-label">
+              <span class="label" id="vtype-label">Vehicle type</span>
+              <div class="seg"><label><input type="radio" name="vtype" value="car" checked><span>Car</span></label><label><input type="radio" name="vtype" value="bike"><span>Two-wheeler</span></label><label><input type="radio" name="vtype" value="cv"><span>Commercial vehicle</span></label></div>
+            </div>
+            <div class="field">
+              <label for="price">Current ex-showroom price of the same model</label>
+              <div class="money"><input id="price" type="number" inputmode="numeric" min="0" step="1000" value="800000"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">Use today's showroom price, not the on-road price.</span>
+            </div>
+          <div class="field">
+            <label for="age">Age of the vehicle</label>
+            <select id="age">
+              <option value="0.05">Less than 6 months</option>
+              <option value="0.15">6 months to 1 year</option>
+              <option value="0.20">1 to 2 years</option>
+              <option value="0.30" selected>2 to 3 years</option>
+              <option value="0.40">3 to 4 years</option>
+              <option value="0.50">4 to 5 years</option>
+              <option value="old">More than 5 years</option>
+            </select>
+          </div>
+        </fieldset>
+        <fieldset class="tool-group">
+          <legend>Your record and usage</legend>
+            <div class="field" role="radiogroup" aria-labelledby="ncb-label">
+              <span class="label" id="ncb-label">Claim-free years in a row</span>
+              <div class="seg"><label><input type="radio" name="ncb" value="0"><span>None</span></label><label><input type="radio" name="ncb" value="20"><span>1</span></label><label><input type="radio" name="ncb" value="25" checked><span>2</span></label><label><input type="radio" name="ncb" value="35"><span>3</span></label><label><input type="radio" name="ncb" value="45"><span>4</span></label><label><input type="radio" name="ncb" value="50"><span>5 or more</span></label></div>
+            </div>
+            <div class="field" role="radiogroup" aria-labelledby="flood-label">
+              <span class="label" id="flood-label">Is your parking or daily route prone to waterlogging?</span>
+              <div class="seg"><label><input type="radio" name="flood" value="yes" checked><span>Yes</span></label><label><input type="radio" name="flood" value="no"><span>No</span></label></div>
+            </div>
+        </fieldset>
+      </form>
+        <aside class="result-card" aria-live="polite">
+          <p class="r-label">Estimated insured declared value (IDV)</p>
+          <p class="r-figure" id="r-figure">&mdash;</p>
+          <p class="r-sub" id="r-sub"></p>
+          <ul class="ledger" id="r-ledger"></ul>
+          <ul class="r-points" id="r-points"></ul>
+          <div class="r-actions">
+            <a class="btn btn-primary" href="#review">Get quotes compared</a>
+            <a class="btn btn-wa js-wa-result" href="https://wa.me/919246582445" target="_blank" rel="noopener">Send this result on WhatsApp</a>
+          </div>
+          <p class="fine">Indicative estimate for planning only. Final cover, premium and eligibility are decided by the insurer after underwriting.</p>
+        </aside>
+    </div>
+
+    <section class="method">
+      <div class="container">
+        <details>
+          <summary>How this estimate is worked out</summary>
+          <div><ul>
+            <li>IDV is the most the insurer pays if the vehicle is stolen or a total loss. It is the ex-showroom price minus depreciation for the vehicle&#39;s age.</li>
+            <li>Depreciation follows the standard motor tariff schedule: 5% under 6 months, 15% up to 1 year, 20% up to 2 years, 30% up to 3 years, 40% up to 4 years and 50% up to 5 years.</li>
+            <li>For vehicles older than 5 years, IDV is agreed with the insurer based on condition, so the range shown is only a starting point.</li>
+            <li>No claim bonus (NCB) is a discount on the own-damage premium: 20%, 25%, 35%, 45% and 50% for 1 to 5+ claim-free years.</li>
+            <li>Third-party liability cover is compulsory under the Motor Vehicles Act for every vehicle on the road.</li>
+          </ul></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="brands">
+      <div class="container">
+        <h2>Motor policies we can compare for you</h2>
+        <p>We check IDV, add-ons, garage network and claim support together, so a low premium does not hide a weak policy.</p>
+        <div class="brand-grid">
+          <div class="brand-item">
+            <h3>TATA AIG Motor Insurance</h3>
+            <p>Car and two-wheeler cover from third-party liability to comprehensive protection, with add-ons and a wide cashless garage network.</p>
+          </div>
+          <div class="brand-item">
+            <h3>Motilal Oswal insurance panel</h3>
+            <p>Through Motilal Oswal Financial Services Ltd (IRDAI Composite Corporate Agent, Reg. No. CA0579), with tie-ups across a panel of general insurers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-section" id="review">
+      <div class="container lead-wrap">
+        <div class="lead-copy">
+          <h2>Get your renewal compared, free</h2>
+          <p>Share your details and Mr. SRK Prasad will compare quotes with the right IDV and add-ons before your renewal date. No obligation.</p>
+          <p>Prefer to talk now? Call <a href="tel:+919246582445">+91 92465 82445</a> or use the WhatsApp button.</p>
+        </div>
+        <form class="lead-form js-lead" name="tool-lead" method="POST" action="/tools/thanks/" data-netlify="true" netlify-honeypot="company-website" novalidate>
+          <input type="hidden" name="form-name" value="tool-lead">
+          <input type="hidden" name="tool" value="">
+          <input type="hidden" name="summary" value="">
+          <input type="hidden" name="interest" value="Motor insurance">
+          <input type="hidden" name="source" value="direct">
+          <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+          <div class="field">
+            <label for="l-name">Your name</label>
+            <input id="l-name" name="name" type="text" autocomplete="name" required>
+            <span class="form-error js-name-error">Enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="l-phone">Mobile number</label>
+            <input id="l-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" required>
+            <span class="form-error js-phone-error">Enter a valid 10-digit Indian mobile number.</span>
+          </div>
+          <div class="field">
+            <label for="l-time">Best time to call</label>
+            <select id="l-time" name="call-time">
+              <option>Morning (9am to 12pm)</option>
+              <option>Afternoon (12pm to 4pm)</option>
+              <option>Evening (4pm to 8pm)</option>
+              <option>WhatsApp me instead</option>
+            </select>
+          </div>
+          <div class="field check-wrap">
+            <label class="check"><input type="checkbox" name="consent" value="yes"> I agree to be contacted by Sri Sowbhagya Associates by phone, SMS or WhatsApp about this enquiry.</label>
+            <span class="form-error js-consent-error">Please tick this box so we can contact you.</span>
+          </div>
+          <button class="btn btn-primary" type="submit">Request my free review</button>
+          <p class="consent">Your calculator result is attached to this request. We use your details only to respond to you. See our <a href="/privacy/">privacy policy</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="container">
+      <p class="tool-disclosure"><strong>Disclosure:</strong> This calculator gives an indicative estimate only. Coverage terms, no-claim bonus and add-ons vary by plan; please review policy wordings before purchase. Insurance is the subject matter of solicitation. IRDAI Agent Code: 9355098.</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sri Sowbhagya Associates</div>
+          <p style="font-size: 0.85rem; color: #94A3B8;">
+            Promoter: Mr. SRK Prasad<br>
+            Providing client-centered guidance across insurance, mutual funds, and gold investments.<br>
+            <a href="tel:+919246582445" style="color: #94A3B8;">+91 92465 82445</a>
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="/insurance/">Insurance Solutions</a></li>
+            <li><a href="/mutual-funds/">Mutual Funds &amp; SIPs</a></li>
+            <li><a href="/gold-investments/">Gold Investments</a></li>
+            <li><a href="/tools/">Planning Calculators</a></li>
+            <li><a href="/about.html">About Promoter</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal &amp; Regulatory</div>
+          <ul class="footer-links">
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+            <li><a href="/disclosures/">Regulatory Disclosures</a></li>
+            <li><a href="/grievance/">Grievance Redressal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #1E293B; padding-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #64748B;">
+        <p>Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Insurance is the subject matter of solicitation. Information provided on this website is for educational purposes and does not constitute formal financial advice.</p>
+        <p style="margin-top: 0.5rem;">&copy; 2026 Sri Sowbhagya Associates. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/tools.js"></script>
+  <script>
+(function () {
+  var S = window.SSA;
+  function calc() {
+    var price = S.num('price'), ageVal = document.getElementById('age').value;
+    var vtype = S.radio('vtype'), ncb = parseInt(S.radio('ncb'), 10), flood = S.radio('flood');
+    var ageText = document.getElementById('age').selectedOptions[0].text;
+    var old = ageVal === 'old';
+    var dep = old ? 0.5 : parseFloat(ageVal);
+    var idv = price * (1 - dep);
+    var low = old ? price * 0.4 : idv, high = old ? price * 0.5 : idv;
+    if (price <= 0) {
+      document.getElementById('r-figure').textContent = '\u2014';
+      document.getElementById('r-sub').textContent = 'Enter the ex-showroom price to see an estimate.';
+      document.getElementById('r-ledger').innerHTML = '';
+      document.getElementById('r-points').innerHTML = '';
+      return;
+    }
+    document.getElementById('r-figure').textContent = old ? S.words(low) + ' to ' + S.words(high) : S.words(idv);
+    document.getElementById('r-sub').textContent = old
+      ? 'For vehicles over 5 years, IDV is agreed with the insurer based on condition.'
+      : 'The most you would receive for theft or total loss, before deductibles.';
+    var rows = [
+      ['Ex-showroom price', S.inr(price), ''],
+      [old ? 'Depreciation (agreed, indicative)' : 'Depreciation for age (' + Math.round(dep * 100) + '%)', old ? '50% to 60%' : '\u2212 ' + S.inr(price * dep), 'minus'],
+      ['Estimated IDV', old ? S.inr(low) + ' to ' + S.inr(high) : S.inr(idv), 'total'],
+      ['Your NCB on own-damage premium', ncb + '%', '']
+    ];
+    document.getElementById('r-ledger').innerHTML = rows.map(function (r) {
+      return '<li class="' + r[2] + '"><span>' + r[0] + '</span><span>' + r[1] + '</span></li>';
+    }).join('');
+
+    var years = { '0.05': 0.5, '0.15': 1, '0.20': 2, '0.30': 3, '0.40': 4, '0.50': 5, 'old': 6 }[ageVal];
+    var pts = ['Third-party cover is compulsory. A comprehensive policy adds cover for damage to your own vehicle.'];
+    if (vtype !== 'cv' && years <= 5) pts.push('Zero depreciation add-on: claims are paid without deducting depreciation on replaced parts.');
+    if (vtype === 'car' && years <= 3) pts.push('Return to invoice add-on: pays the gap between IDV and invoice value on total loss or theft.');
+    if (flood === 'yes' && vtype !== 'cv') pts.push('Engine protection add-on: standard policies usually exclude engine damage from driving through water.');
+    if (ncb >= 25) pts.push('NCB protection add-on keeps your ' + ncb + '% discount after a claim.');
+    if (vtype === 'car') pts.push('Roadside assistance and consumables cover are low-cost add-ons worth considering.');
+    if (vtype === 'bike') pts.push('Ask about long-term two-wheeler policies to avoid yearly renewal gaps.');
+    if (vtype === 'cv') pts.push('Commercial vehicles need cover matched to permit type, carrying capacity and driver or passenger liability.');
+    pts.push('Owner-drivers need compulsory personal accident cover unless they already hold a qualifying policy.');
+    document.getElementById('r-points').innerHTML = pts.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+
+    var vname = { car: 'Car', bike: 'Two-wheeler', cv: 'Commercial vehicle' }[vtype];
+    S.setResult('motor insurance calculator',
+      'Estimated IDV: ' + (old ? S.words(low) + ' to ' + S.words(high) : S.words(idv)) +
+      '\n' + vname + ', ex-showroom ' + S.words(price) + ', age ' + ageText + ', NCB ' + ncb + '%, waterlogging risk ' + flood);
+  }
+  document.getElementById('calc').addEventListener('input', calc);
+  document.getElementById('calc').addEventListener('change', calc);
+  document.addEventListener('DOMContentLoaded', calc);
+})();
+  </script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/whatsapp.js" defer></script>
+</body>
+</html>

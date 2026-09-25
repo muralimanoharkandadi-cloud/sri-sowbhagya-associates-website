@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Advisor Career Quiz | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Take the 2-minute quiz to see if a career as an insurance advisor suits you, then book a free briefing with Mr. SRK Prasad in Hyderabad.">
+  <link rel="canonical" href="https://srisowbhagyaassociates.com/insurance/careers/quiz/">
+  <meta property="og:title" content="Insurance Advisor Career Quiz | Sri Sowbhagya Associates">
+  <meta property="og:description" content="Take the 2-minute quiz to see if a career as an insurance advisor suits you, then book a free briefing with Mr. SRK Prasad in Hyderabad.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://srisowbhagyaassociates.com/insurance/careers/quiz/">
+
+  <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/tools.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/assets/images/ssa-logo-header.png" alt="" style="height: 44px; width: auto; display: block;">
+        <img src="/assets/images/ssa-wordmark.png" alt="Sri Sowbhagya Associates &mdash; Protection & Growth" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/insurance/" class="nav-link" style="color:var(--primary); font-weight:700;">Insurance</a></li>
+          <li><a href="/mutual-funds/" class="nav-link">Mutual Funds</a></li>
+          <li><a href="/gold-investments/" class="nav-link">Gold Investments</a></li>
+          <li><a href="/tools/" class="nav-link">Calculators</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+          <li><a href="/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">Talk to Us</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="back-bar">
+    <div class="container">
+      <a class="back-link" href="/insurance/careers/">&larr; Back to Advisor Careers</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <h1>Could insurance advisory be right for you?</h1>
+        <p>Eight quick questions, about two minutes. You will see how well the role fits your time, network and goals, and can book a free briefing.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="quiz-shell">
+        <div id="quiz">
+          <div class="quiz-progress" aria-hidden="true"><span id="q-bar"></span></div>
+          <p class="quiz-count" id="q-count"></p>
+          <div class="quiz-q">
+            <h2 id="q-title" tabindex="-1"></h2>
+            <div id="q-options"></div>
+          </div>
+          <div class="quiz-nav"><button type="button" id="q-back">&larr; Previous question</button><span></span></div>
+        </div>
+
+        <div id="quiz-result" hidden>
+          <div class="quiz-result" aria-live="polite">
+            <p class="fit" id="fit-title"></p>
+            <div class="meter" id="fit-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <p id="fit-copy"></p>
+            <ul id="fit-points"></ul>
+            <p style="margin-top:1rem;"><button type="button" class="btn btn-ghost" id="q-restart" style="color:var(--primary); border:1px solid var(--border-color) !important; padding:0.55rem 1rem;">Retake the quiz</button></p>
+          </div>
+
+          <form class="lead-form js-lead" id="career-form" name="career-quiz" method="POST" action="/tools/thanks/?t=career" data-netlify="true" netlify-honeypot="company-website" novalidate style="margin-top:1.75rem;">
+            <input type="hidden" name="form-name" value="career-quiz">
+            <input type="hidden" name="score" value="">
+            <input type="hidden" name="fit" value="">
+            <input type="hidden" name="answers" value="">
+            <input type="hidden" name="source" value="direct">
+            <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+            <h2 style="color:var(--primary); font-size:1.3rem; margin-bottom:0.4rem;">Book a free career briefing</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.25rem;">A 45-minute session with Mr. SRK Prasad on licensing, training, how advisor income works, and what support you get. No cost, no obligation.</p>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-name">Your name</label>
+                <input id="c-name" name="name" type="text" autocomplete="name" required>
+                <span class="form-error js-name-error">Enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="c-phone">Mobile number</label>
+                <input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" required>
+                <span class="form-error js-phone-error">Enter a valid 10-digit Indian mobile number.</span>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-area">Area you live in</label>
+                <input id="c-area" name="area" type="text" placeholder="e.g. Dammaiguda, ECIL, Kapra">
+              </div>
+              <div class="field">
+                <label for="c-slot">Preferred briefing</label>
+                <select id="c-slot" name="briefing">
+                  <option>Weekday evening at the Dammaiguda office</option>
+                  <option>Saturday at the Dammaiguda office</option>
+                  <option>Online video call</option>
+                  <option>Call me first</option>
+                </select>
+              </div>
+            </div>
+            <div class="field check-wrap">
+              <label class="check"><input type="checkbox" name="consent" value="yes"> I agree to be contacted by Sri Sowbhagya Associates by phone, SMS or WhatsApp about the advisor opportunity.</label>
+              <span class="form-error js-consent-error">Please tick this box so we can contact you.</span>
+            </div>
+            <button class="btn btn-primary" type="submit">Book my briefing</button>
+            <p class="consent">Your quiz answers are attached. We use your details only to arrange the briefing. See our <a href="/privacy/">privacy policy</a>.</p>
+          </form>
+          <p id="minor-note" hidden style="margin-top:1.5rem; color:var(--text-muted);">You need to be at least 18 to register as an insurance advisor. You are welcome to come back once you turn 18, or ask a parent to call us on <a href="tel:+919246582445">+91 92465 82445</a> to learn more.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p class="tool-disclosure"><strong>Disclosure:</strong> This quiz is a self-assessment to help you decide whether to explore the opportunity. Registration as an insurance agent depends on meeting IRDAI eligibility requirements, completing mandatory training and passing the qualifying exam. Advisor income depends on licensing, effort and client outcomes, and is not guaranteed. IRDAI Leader Code: 5810649.</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sri Sowbhagya Associates</div>
+          <p style="font-size: 0.85rem; color: #94A3B8;">
+            Promoter: Mr. SRK Prasad<br>
+            Providing client-centered guidance across insurance, mutual funds, and gold investments.<br>
+            <a href="tel:+919246582445" style="color: #94A3B8;">+91 92465 82445</a>
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="/insurance/">Insurance Solutions</a></li>
+            <li><a href="/mutual-funds/">Mutual Funds &amp; SIPs</a></li>
+            <li><a href="/gold-investments/">Gold Investments</a></li>
+            <li><a href="/tools/">Planning Calculators</a></li>
+            <li><a href="/about.html">About Promoter</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal &amp; Regulatory</div>
+          <ul class="footer-links">
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+            <li><a href="/disclosures/">Regulatory Disclosures</a></li>
+            <li><a href="/grievance/">Grievance Redressal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #1E293B; padding-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #64748B;">
+        <p>Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Insurance is the subject matter of solicitation. Information provided on this website is for educational purposes and does not constitute formal financial advice.</p>
+        <p style="margin-top: 0.5rem;">&copy; 2026 Sri Sowbhagya Associates. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/tools.js"></script>
+  <script>
+(function () {
+  var Q = [
+    { t: 'How old are you?', o: [['Under 18', 0, 'minor'], ['18 to 25', 2], ['26 to 40', 3], ['41 to 55', 3], ['56 or above', 2]] },
+    { t: 'What is your highest education?', o: [['Below 10th', 0, 'edu'], ['10th pass', 2], ['12th pass', 3], ['Graduate or above', 3]] },
+    { t: 'What best describes you right now?', o: [['Homemaker', 3], ['Salaried, looking for extra income', 2], ['Running a business or self-employed', 3], ['Retired', 3], ['Between jobs', 2], ['Student', 1]] },
+    { t: 'How much time could you give each week?', o: [['Less than 5 hours', 1], ['5 to 15 hours', 2], ['15 to 30 hours', 3], ['Full time', 3]] },
+    { t: 'Roughly how many people could you comfortably talk to about their family\u2019s finances?', o: [['Fewer than 25', 1], ['25 to 100', 2], ['100 to 300', 3], ['More than 300', 3]] },
+    { t: 'How comfortable are you starting conversations about money and family protection?', o: [['Not yet comfortable', 0], ['Somewhat, with practice', 1], ['Comfortable', 2], ['I enjoy it', 3]] },
+    { t: 'Are you willing to complete the mandatory training and pass the IRDAI qualifying exam?', o: [['Yes', 3], ['I need to know more first', 1], ['No', 0, 'train']] },
+    { t: 'Are you comfortable using a smartphone and WhatsApp for work?', o: [['Yes', 2], ['With a little help', 1], ['Not really', 0]] }
+  ];
+  var MAX = 23;
+  var answers = [];
+  var i = 0;
+  var bar = document.getElementById('q-bar'), count = document.getElementById('q-count');
+  var title = document.getElementById('q-title'), opts = document.getElementById('q-options');
+  var back = document.getElementById('q-back');
+
+  function render(focus) {
+    var q = Q[i];
+    bar.style.width = (i / Q.length * 100) + '%';
+    count.textContent = 'Question ' + (i + 1) + ' of ' + Q.length;
+    title.textContent = q.t;
+    opts.innerHTML = '';
+    q.o.forEach(function (o, k) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'option-btn';
+      b.textContent = o[0];
+      if (answers[i] === k) b.style.borderColor = 'var(--primary)';
+      b.addEventListener('click', function () { answers[i] = k; next(); });
+      opts.appendChild(b);
+    });
+    back.style.visibility = i === 0 ? 'hidden' : 'visible';
+    if (focus) title.focus();
+  }
+
+  function next() {
+    if (i < Q.length - 1) { i++; render(true); } else { finish(); }
+  }
+
+  back.addEventListener('click', function () { if (i > 0) { i--; render(true); } });
+
+  function finish() {
+    bar.style.width = '100%';
+    var score = 0, flags = {}, lines = [];
+    Q.forEach(function (q, k) {
+      var o = q.o[answers[k]];
+      score += o[1];
+      if (o[2]) flags[o[2]] = true;
+      lines.push(q.t + ' ' + o[0]);
+    });
+    document.getElementById('quiz').hidden = true;
+    var res = document.getElementById('quiz-result');
+    res.hidden = false;
+    var form = document.getElementById('career-form');
+    var minor = document.getElementById('minor-note');
+    var t = document.getElementById('fit-title'), c = document.getElementById('fit-copy'), pts = [];
+    var level;
+
+    if (flags.minor) {
+      t.textContent = 'Not eligible yet';
+      c.textContent = 'Thank you for your interest in insurance advisory.';
+      level = 0; form.hidden = true; minor.hidden = false;
+    } else {
+      form.hidden = false; minor.hidden = true;
+      if (score >= 18) {
+        level = 4; t.textContent = 'Strong fit';
+        c.textContent = 'Your time, network and outlook match what successful advisors bring. A briefing will show you exactly how to get started.';
+      } else if (score >= 13) {
+        level = 3; t.textContent = 'Good fit';
+        c.textContent = 'You have a solid base to build on. Training and mentorship cover the skills you are still developing.';
+      } else {
+        level = 2; t.textContent = 'Worth a conversation';
+        c.textContent = 'Some areas need building up, and that is normal at the start. A briefing will help you judge whether the role suits you.';
+      }
+      if (answers[4] >= 2) pts.push('Your personal network gives you a natural starting point for your first clients.');
+      if (answers[3] >= 2) pts.push('The time you can give is enough to build steady business alongside training.');
+      if (answers[2] === 0) pts.push('Many successful advisors are homemakers who work flexible hours from home.');
+      if (answers[2] === 3) pts.push('Retired professionals bring trust and experience that clients value.');
+      if (answers[5] <= 1) pts.push('Conversation skills are part of the training, with role-play and mentoring from day one.');
+      if (flags.edu) pts.push('IRDAI sets a minimum educational qualification for agents. We will check your eligibility with you during the briefing.');
+      if (flags.train) pts.push('The training and exam are required for a licence, so it is worth hearing how the process works before deciding.');
+      if (answers[7] === 2) pts.push('Some tools are app-based. We help new advisors get comfortable with them.');
+    }
+    document.querySelectorAll('#fit-meter i').forEach(function (m, k) { m.className = k < level ? 'on' : ''; });
+    document.getElementById('fit-points').innerHTML = pts.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+    form.querySelector('input[name="score"]').value = score + '/' + MAX;
+    form.querySelector('input[name="fit"]').value = t.textContent;
+    form.querySelector('input[name="answers"]').value = lines.join(' | ');
+    if (window.SSA_WA) window.SSA_WA.setMessage('Hello, I took the advisor career quiz on your website (result: ' + t.textContent + '). I would like to know more about becoming an insurance advisor.');
+    t.setAttribute('tabindex', '-1'); t.focus();
+  }
+
+  document.getElementById('q-restart').addEventListener('click', function () {
+    answers = []; i = 0;
+    document.getElementById('quiz-result').hidden = true;
+    document.getElementById('quiz').hidden = false;
+    render(true);
+  });
+
+  render(false);
+})();
+  </script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/whatsapp.js" defer></script>
+</body>
+</html>

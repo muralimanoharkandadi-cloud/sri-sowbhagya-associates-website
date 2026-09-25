@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Term Insurance Cover Calculator | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Work out how much term life cover your family needs, based on your income, loans, goals and existing cover. Free, instant, and reviewed by an IRDAI-licensed advisor.">
+  <link rel="canonical" href="https://srisowbhagyaassociates.com/tools/term-cover/">
+  <meta property="og:title" content="Term Insurance Cover Calculator | Sri Sowbhagya Associates">
+  <meta property="og:description" content="Work out how much term life cover your family needs, based on your income, loans, goals and existing cover. Free, instant, and reviewed by an IRDAI-licensed advisor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://srisowbhagyaassociates.com/tools/term-cover/">
+
+  <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/tools.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/assets/images/ssa-logo-header.png" alt="" style="height: 44px; width: auto; display: block;">
+        <img src="/assets/images/ssa-wordmark.png" alt="Sri Sowbhagya Associates &mdash; Protection & Growth" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/insurance/" class="nav-link">Insurance</a></li>
+          <li><a href="/mutual-funds/" class="nav-link">Mutual Funds</a></li>
+          <li><a href="/gold-investments/" class="nav-link">Gold Investments</a></li>
+          <li><a href="/tools/" class="nav-link" style="color:var(--primary); font-weight:700;">Calculators</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+          <li><a href="/contact.html" class="btn btn-primary" style="padding: 0.5rem 1rem;">Talk to Us</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="back-bar">
+    <div class="container">
+      <a class="back-link" href="/tools/">&larr; All calculators</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <h1>How much life cover does your family need?</h1>
+        <p>Enter your income, loans and goals. You get a suggested term cover amount and a clear breakdown of how it was worked out.</p>
+      </div>
+    </section>
+
+    <div class="container tool-layout">
+      <form class="tool-panel" id="calc" onsubmit="return false;">
+        <h2>Your details</h2>
+        <p class="panel-note">The estimate updates as you type. Nothing is sent until you ask for a review.</p>
+        <fieldset class="tool-group">
+          <legend>About you</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="age">Your age</label>
+              <input id="age" type="number" inputmode="numeric" min="18" max="65" step="1" value="32">
+              
+            </div>
+            <div class="field">
+              <label for="retire">Planned retirement age</label>
+              <input id="retire" type="number" inputmode="numeric" min="40" max="75" step="1" value="60">
+              
+            </div>
+          </div>
+            <div class="field">
+              <label for="income">Your annual income</label>
+              <div class="money"><input id="income" type="number" inputmode="numeric" min="0" step="1000" value="1200000"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">Take-home plus bonus, per year.</span>
+            </div>
+        </fieldset>
+        <fieldset class="tool-group">
+          <legend>What your family would need</legend>
+            <div class="field">
+              <label for="loans">Outstanding loans</label>
+              <div class="money"><input id="loans" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">Home, car, personal and education loans still to repay.</span>
+            </div>
+            <div class="field">
+              <label for="goals">Future goals you'd want funded</label>
+              <div class="money"><input id="goals" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">Children's higher education, weddings, and similar commitments.</span>
+            </div>
+        </fieldset>
+        <fieldset class="tool-group">
+          <legend>What you already have</legend>
+            <div class="field">
+              <label for="existing">Existing life cover</label>
+              <div class="money"><input id="existing" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">Add up all personal policies. Leave out employer group cover, as it ends when you change jobs.</span>
+            </div>
+            <div class="field">
+              <label for="savings">Savings your family could use</label>
+              <div class="money"><input id="savings" type="number" inputmode="numeric" min="0" step="1000" value="0"></div>
+              <span class="amount-words" aria-hidden="true"></span>
+              <span class="hint">FDs, mutual funds and similar, excluding your retirement corpus.</span>
+            </div>
+        </fieldset>
+        <p class="form-error" id="calc-error" role="alert"></p>
+      </form>
+        <aside class="result-card" aria-live="polite">
+          <p class="r-label">Suggested term cover</p>
+          <p class="r-figure" id="r-figure">&mdash;</p>
+          <p class="r-sub" id="r-sub"></p>
+          <ul class="ledger" id="r-ledger"></ul>
+          <ul class="r-points" id="r-points"></ul>
+          <div class="r-actions">
+            <a class="btn btn-primary" href="#review">Get this plan reviewed</a>
+            <a class="btn btn-wa js-wa-result" href="https://wa.me/919246582445" target="_blank" rel="noopener">Send this result on WhatsApp</a>
+          </div>
+          <p class="fine">Indicative estimate for planning only. Final cover, premium and eligibility are decided by the insurer after underwriting.</p>
+        </aside>
+    </div>
+
+    <section class="method">
+      <div class="container">
+        <details>
+          <summary>How this estimate is worked out</summary>
+          <div><ul>
+            <li>Income replacement: your annual income multiplied by an age-based factor (20&times; up to age 30, 15&times; for 31 to 40, 12&times; for 41 to 50, 8&times; above 50), limited to the years left until retirement with a minimum of 5 years.</li>
+            <li>Loans and future goals are added, so your family is not left with debt or unfunded commitments.</li>
+            <li>Existing personal life cover and usable savings are subtracted.</li>
+            <li>The result is rounded up to the nearest &#8377;25 lakh, which is how term cover is usually offered.</li>
+            <li>This is a planning guide. Insurers decide the maximum cover you qualify for based on income proof, age, health and lifestyle.</li>
+          </ul></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="brands">
+      <div class="container">
+        <h2>Term plans we can compare for you</h2>
+        <p>Once you know the cover you need, we compare options across our insurer tie-ups and explain the differences in plain language.</p>
+        <div class="brand-grid">
+          <div class="brand-item">
+            <h3>TATA AIA Life Insurance</h3>
+            <p>Term plans such as Sampoorna Raksha Promise and Maha Raksha Supreme Select, plus savings, retirement and child plans.</p>
+          </div>
+          <div class="brand-item">
+            <h3>Motilal Oswal insurance panel</h3>
+            <p>Through Motilal Oswal Financial Services Ltd (IRDAI Composite Corporate Agent, Reg. No. CA0579), with tie-ups across a panel of life insurers and gap analysis before recommending cover.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead-section" id="review">
+      <div class="container lead-wrap">
+        <div class="lead-copy">
+          <h2>Have your cover reviewed, free</h2>
+          <p>Mr. SRK Prasad will go through your result, check what insurers are likely to offer at your income and age, and explain premium options. No obligation.</p>
+          <p>Prefer to talk now? Call <a href="tel:+919246582445">+91 92465 82445</a> or use the WhatsApp button.</p>
+        </div>
+        <form class="lead-form js-lead" name="tool-lead" method="POST" action="/tools/thanks/" data-netlify="true" netlify-honeypot="company-website" novalidate>
+          <input type="hidden" name="form-name" value="tool-lead">
+          <input type="hidden" name="tool" value="">
+          <input type="hidden" name="summary" value="">
+          <input type="hidden" name="interest" value="Life / term insurance">
+          <input type="hidden" name="source" value="direct">
+          <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+          <div class="field">
+            <label for="l-name">Your name</label>
+            <input id="l-name" name="name" type="text" autocomplete="name" required>
+            <span class="form-error js-name-error">Enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="l-phone">Mobile number</label>
+            <input id="l-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile" required>
+            <span class="form-error js-phone-error">Enter a valid 10-digit Indian mobile number.</span>
+          </div>
+          <div class="field">
+            <label for="l-time">Best time to call</label>
+            <select id="l-time" name="call-time">
+              <option>Morning (9am to 12pm)</option>
+              <option>Afternoon (12pm to 4pm)</option>
+              <option>Evening (4pm to 8pm)</option>
+              <option>WhatsApp me instead</option>
+            </select>
+          </div>
+          <div class="field check-wrap">
+            <label class="check"><input type="checkbox" name="consent" value="yes"> I agree to be contacted by Sri Sowbhagya Associates by phone, SMS or WhatsApp about this enquiry.</label>
+            <span class="form-error js-consent-error">Please tick this box so we can contact you.</span>
+          </div>
+          <button class="btn btn-primary" type="submit">Request my free review</button>
+          <p class="consent">Your calculator result is attached to this request. We use your details only to respond to you. See our <a href="/privacy/">privacy policy</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="container">
+      <p class="tool-disclosure"><strong>Disclosure:</strong> This calculator gives an indicative estimate only. Product features, premiums and eligibility are determined by the respective insurer. Insurance is the subject matter of solicitation. IRDAI Agent Code: 9355098.</p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Sri Sowbhagya Associates</div>
+          <p style="font-size: 0.85rem; color: #94A3B8;">
+            Promoter: Mr. SRK Prasad<br>
+            Providing client-centered guidance across insurance, mutual funds, and gold investments.<br>
+            <a href="tel:+919246582445" style="color: #94A3B8;">+91 92465 82445</a>
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="/insurance/">Insurance Solutions</a></li>
+            <li><a href="/mutual-funds/">Mutual Funds &amp; SIPs</a></li>
+            <li><a href="/gold-investments/">Gold Investments</a></li>
+            <li><a href="/tools/">Planning Calculators</a></li>
+            <li><a href="/about.html">About Promoter</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal &amp; Regulatory</div>
+          <ul class="footer-links">
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Use</a></li>
+            <li><a href="/disclosures/">Regulatory Disclosures</a></li>
+            <li><a href="/grievance/">Grievance Redressal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #1E293B; padding-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #64748B;">
+        <p>Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Insurance is the subject matter of solicitation. Information provided on this website is for educational purposes and does not constitute formal financial advice.</p>
+        <p style="margin-top: 0.5rem;">&copy; 2026 Sri Sowbhagya Associates. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/tools.js"></script>
+  <script>
+(function () {
+  var S = window.SSA;
+  function factor(age) { return age <= 30 ? 20 : age <= 40 ? 15 : age <= 50 ? 12 : 8; }
+  function calc() {
+    var age = S.num('age'), retire = S.num('retire'), income = S.num('income');
+    var err = document.getElementById('calc-error');
+    err.classList.remove('show');
+    if (age < 18 || age > 65) { return fail('Enter an age between 18 and 65.'); }
+    if (retire <= age) { return fail('Retirement age needs to be later than your current age.'); }
+    if (income <= 0) { return fail('Enter your annual income to see an estimate.'); }
+    var years = retire - age;
+    var mult = Math.min(factor(age), Math.max(years, 5));
+    var replace = income * mult;
+    var loans = S.num('loans'), goals = S.num('goals'), existing = S.num('existing'), savings = S.num('savings');
+    var need = replace + loans + goals - existing - savings;
+    var rec = need > 0 ? S.roundUpTo(need, 2500000) : 0;
+    document.getElementById('r-figure').textContent = rec > 0 ? S.words(rec) : 'Covered';
+    document.getElementById('r-sub').textContent = rec > 0
+      ? 'Cover until age ' + retire + ' (' + years + ' years), about ' + Math.round(rec / income) + '\u00D7 your annual income.'
+      : 'Your existing cover and savings meet the estimated need. A review can still check whether the policy terms fit.';
+    var rows = [
+      ['Income replacement (' + mult + '\u00D7 income)', S.inr(replace), ''],
+      ['Loans to clear', S.inr(loans), ''],
+      ['Future goals', S.inr(goals), ''],
+      ['Less existing cover', '\u2212 ' + S.inr(existing), 'minus'],
+      ['Less usable savings', '\u2212 ' + S.inr(savings), 'minus'],
+      ['Estimated need', S.inr(Math.max(0, need)), 'total']
+    ];
+    document.getElementById('r-ledger').innerHTML = rows.map(function (r) {
+      return '<li class="' + r[2] + '"><span>' + r[0] + '</span><span>' + r[1] + '</span></li>';
+    }).join('');
+    var pts = [];
+    if (age <= 35) pts.push('Buying young locks in a lower premium for the full policy term.');
+    if (loans > 0) pts.push('Make sure the cover at least clears your loans so your family keeps the home and assets.');
+    pts.push('Consider critical illness and accidental disability riders alongside the base cover.');
+    if (existing > 0) pts.push('Check whether your existing policies are term or savings plans; savings plans usually carry low life cover.');
+    document.getElementById('r-points').innerHTML = pts.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+    S.setResult('term cover calculator',
+      'Suggested term cover: ' + (rec > 0 ? S.words(rec) : 'already covered') + ' till age ' + retire +
+      '\nAge ' + age + ', income ' + S.words(income) + ', loans ' + S.words(loans) + ', goals ' + S.words(goals) +
+      ', existing cover ' + S.words(existing) + ', savings ' + S.words(savings));
+  }
+  function fail(msg) {
+    var err = document.getElementById('calc-error');
+    err.textContent = msg; err.classList.add('show');
+    document.getElementById('r-figure').textContent = '\u2014';
+    document.getElementById('r-sub').textContent = msg;
+    document.getElementById('r-ledger').innerHTML = '';
+    document.getElementById('r-points').innerHTML = '';
+  }
+  document.getElementById('calc').addEventListener('input', calc);
+  document.addEventListener('DOMContentLoaded', calc);
+})();
+  </script>
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/whatsapp.js" defer></script>
+</body>
+</html>
