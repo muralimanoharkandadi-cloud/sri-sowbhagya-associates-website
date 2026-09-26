@@ -150,13 +150,13 @@
           <p>Mr. SRK Prasad will check the sum insured, covered perils and exclusions, and compare options for your home or business. No obligation.</p>
           <p>Prefer to talk now? Call <a href="tel:+919246582445">+91 92465 82445</a> or use the WhatsApp button.</p>
         </div>
-        <form class="lead-form js-lead" name="tool-lead" method="POST" action="/tools/thanks/" data-netlify="true" netlify-honeypot="company-website" novalidate>
+        <form class="lead-form js-lead" name="tool-lead" method="POST" action="/tools/thanks/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="tool-lead">
           <input type="hidden" name="tool" value="">
           <input type="hidden" name="summary" value="">
           <input type="hidden" name="interest" value="Property or business insurance">
           <input type="hidden" name="source" value="direct">
-          <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+          <p hidden style="display:none" aria-hidden="true"><label>Do not fill this in: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" value=""></label></p>
           <div class="field">
             <label for="l-name">Your name</label>
             <input id="l-name" name="name" type="text" autocomplete="name" required>

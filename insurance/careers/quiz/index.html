@@ -73,13 +73,13 @@
             <p style="margin-top:1rem;"><button type="button" class="btn btn-ghost" id="q-restart" style="color:var(--primary); border:1px solid var(--border-color) !important; padding:0.55rem 1rem;">Retake the quiz</button></p>
           </div>
 
-          <form class="lead-form js-lead" id="career-form" name="career-quiz" method="POST" action="/tools/thanks/?t=career" data-netlify="true" netlify-honeypot="company-website" novalidate style="margin-top:1.75rem;">
+          <form class="lead-form js-lead" id="career-form" name="career-quiz" method="POST" action="/tools/thanks/?t=career" data-netlify="true" netlify-honeypot="bot-field" novalidate style="margin-top:1.75rem;">
             <input type="hidden" name="form-name" value="career-quiz">
             <input type="hidden" name="score" value="">
             <input type="hidden" name="fit" value="">
             <input type="hidden" name="answers" value="">
             <input type="hidden" name="source" value="direct">
-            <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+            <p hidden style="display:none" aria-hidden="true"><label>Do not fill this in: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" value=""></label></p>
             <h2 style="color:var(--primary); font-size:1.3rem; margin-bottom:0.4rem;">Book a free career briefing</h2>
             <p style="color:var(--text-muted); margin-bottom:1.25rem;">A 45-minute session with Mr. SRK Prasad on licensing, training, how advisor income works, and what support you get. No cost, no obligation.</p>
             <div class="field-row">

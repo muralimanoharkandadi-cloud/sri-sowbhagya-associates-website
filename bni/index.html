@@ -328,10 +328,10 @@
           <p style="font-size:0.88rem; color:var(--text-muted);">IRDAI Agent Code (Business): 9355098<br>IRDAI Leader Code (Recruitment): 5810649</p>
         </div>
 
-        <form class="enquiry-form" name="bni-enquiry" method="POST" action="/bni/thanks/" data-netlify="true" netlify-honeypot="company-website">
+        <form class="enquiry-form" name="bni-enquiry" method="POST" action="/bni/thanks/" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="bni-enquiry">
           <input type="hidden" name="source" value="direct" class="js-source">
-          <p class="hidden-field"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+          <p hidden style="display:none" aria-hidden="true"><label>Do not fill this in: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" value=""></label></p>
 
           <div class="field">
             <span id="who-label" style="display:block; font-weight:600; font-size:0.95rem; color:var(--primary); margin-bottom:0.35rem;">This enquiry is</span>
