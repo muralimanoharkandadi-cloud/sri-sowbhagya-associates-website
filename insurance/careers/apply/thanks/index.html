@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank you | Sri Sowbhagya Associates</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body data-wa-message="Hello, I would like to know more about becoming an insurance advisor with Sri Sowbhagya Associates.">
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/assets/images/ssa-logo-header.png" alt="" style="height: 44px; width: auto; display: block;">
+        <img src="/assets/images/ssa-wordmark.png" alt="Sri Sowbhagya Associates &mdash; Protection &amp; Growth" style="height: 34px; width: auto; display: block;">
+      </a>
+    </div>
+  </header>
+
+  <div class="back-bar">
+    <div class="container">
+      <a class="back-link" href="/insurance/careers/">&larr; About advisor careers</a>
+    </div>
+  </div>
+
+  <section class="section-padding">
+    <div class="container" style="max-width: 640px;">
+      <h1 class="section-title" style="text-align:left;" id="thanks-title">Thank you</h1>
+      <p lang="te" style="color:var(--secondary); font-size:1.15rem; margin-top:0.25rem;">ధన్యవాదాలు!</p>
+      <p style="margin: 1rem 0 1.5rem; font-size: 1.1rem;">Your details have reached SRK Prasad's team. To start the conversation right away, continue on WhatsApp. We will also call you within one working day.</p>
+      <p style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:0.75rem;">
+        <a class="btn" id="wa-btn" style="background:#25D366; color:#0B2E17; font-weight:700;" href="https://wa.me/919246582445?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20becoming%20an%20insurance%20advisor." target="_blank" rel="noopener">Continue on WhatsApp</a>
+        <a class="btn btn-primary" href="tel:+919246582445">Call +91 92465 82445</a>
+      </p>
+      <p id="wa-countdown" style="color:var(--text-muted); font-size:0.92rem;" hidden></p>
+      <p style="margin-top: 2rem;"><a href="/">Visit the main website</a></p>
+      <p style="margin-top: 1.5rem; font-size:0.82rem; color:var(--text-muted);">Becoming an insurance advisor requires meeting IRDAI eligibility, completing pre-licensing training and clearing the licensing exam. Income is commission-based and not guaranteed. Insurance is the subject matter of solicitation. IRDAI Leader Code (Recruitment): 5810649.</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var lead = null;
+      try { lead = JSON.parse(sessionStorage.getItem('ssa_advisor_lead') || 'null'); } catch (e) {}
+      var btn = document.getElementById('wa-btn');
+      if (!lead || !lead.wa || lead.wa.indexOf('https://wa.me/919246582445') !== 0) return;
+      if (lead.name) document.getElementById('thanks-title').textContent = 'Thank you, ' + lead.name;
+      btn.href = lead.wa;
+      // Open WhatsApp automatically after a short pause; the person can stay on this page instead.
+      var left = 4, note = document.getElementById('wa-countdown'), stopped = false;
+      note.hidden = false;
+      var stop = document.createElement('a');
+      stop.href = '#'; stop.textContent = 'Stay on this page';
+      stop.addEventListener('click', function (ev) { ev.preventDefault(); stopped = true; note.hidden = true; });
+      function tick() {
+        if (stopped) return;
+        if (left <= 0) { try { sessionStorage.removeItem('ssa_advisor_lead'); } catch (e) {} window.location.href = lead.wa; return; }
+        note.textContent = 'Opening WhatsApp in ' + left + ' seconds. ';
+        note.appendChild(stop);
+        left -= 1; setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+  </script>
+  <script src="/assets/js/whatsapp.js" defer></script>
+</body>
+</html>

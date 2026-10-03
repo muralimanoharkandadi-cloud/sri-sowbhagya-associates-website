@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become an Insurance Advisor | Sri Sowbhagya Associates</title>
+  <meta name="description" content="Interested in becoming a licensed Life Insurance Advisor? Tell SRK Prasad of Sri Sowbhagya Associates and get a call or WhatsApp reply.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://srisowbhagyaassociates.com/insurance/careers/apply/">
+  <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    /* ---- Advisor interest page (page-scoped) ---- */
+    .apply-hero {
+      background: linear-gradient(165deg, #0F172A 0%, var(--primary) 75%);
+      color: #FFFFFF;
+      padding: 2.25rem 0 3rem;
+      min-height: 70vh;
+    }
+    .apply-wrap { max-width: 560px; margin: 0 auto; padding: 0 1.1rem; }
+    .apply-logo {
+      width: 84px; height: 84px; border-radius: 50%; display: block; margin: 0 auto 1.4rem;
+      object-fit: cover; border: 3px solid rgba(255,255,255,0.85); background: #000;
+    }
+    .apply-hero h1 { font-size: 1.65rem; line-height: 1.3; text-align: center; color: #FFFFFF; margin: 0 0 0.6rem; }
+    .apply-te { text-align: center; font-size: 1.15rem; line-height: 1.5; color: #FBD38D; margin: 0 0 1.1rem; }
+    .apply-sub { text-align: center; color: #CBD5E0; margin: 0 0 1.4rem; font-size: 0.98rem; }
+    fieldset.choices { border: 0; padding: 0; margin: 0; }
+    .choice {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      border: 1.5px solid rgba(255,255,255,0.45); border-radius: 12px;
+      padding: 1.05rem 1.1rem; margin-bottom: 0.8rem; cursor: pointer;
+      font-weight: 600; font-size: 1.1rem; background: rgba(255,255,255,0.05);
+      transition: border-color .2s, background .2s;
+    }
+    .choice:hover { border-color: #FFFFFF; background: rgba(255,255,255,0.1); }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice .dot {
+      width: 26px; height: 26px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); flex: none;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .choice input:checked + .dot { border-color: #ECC94B; background: #ECC94B; box-shadow: inset 0 0 0 5px #0F172A; }
+    .choice:has(input:checked) { border-color: #ECC94B; background: rgba(236,201,75,0.12); }
+    .choice:focus-within { outline: 3px solid #90CDF4; outline-offset: 2px; }
+    .choice small { font-weight: 400; opacity: 0.8; margin-left: 0.35rem; }
+
+    .panel { margin-top: 1.4rem; }
+    .panel[hidden] { display: none; }
+    .apply-form {
+      background: #FFFFFF; color: var(--text-primary); border-radius: 16px;
+      padding: 1.5rem 1.3rem; box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+    }
+    .apply-form h2 { font-size: 1.2rem; margin: 0 0 0.25rem; color: var(--primary); }
+    .apply-form .hint-line { color: var(--text-muted); font-size: 0.92rem; margin: 0 0 1.1rem; }
+    .apply-form .field { margin-bottom: 0.95rem; }
+    .apply-form label { display: block; font-weight: 600; font-size: 0.93rem; color: var(--primary); margin-bottom: 0.3rem; }
+    .apply-form input[type="text"], .apply-form input[type="tel"], .apply-form select {
+      width: 100%; padding: 0.7rem 0.75rem; font-size: 1rem; border: 1.5px solid var(--border-color);
+      border-radius: 8px; background: #FFFFFF; color: var(--text-primary); font-family: inherit;
+    }
+    .apply-form input:focus, .apply-form select:focus { outline: 3px solid #BEE3F8; border-color: var(--primary-light); }
+    .apply-form .consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+    .apply-form .consent input { margin-top: 0.2rem; flex: none; width: 18px; height: 18px; }
+    .apply-form .btn { width: 100%; border: none; cursor: pointer; font-size: 1.05rem; padding: 0.9rem 1rem; margin-top: 0.4rem; }
+    .btn-wa { background: #25D366; color: #0B2E17; font-weight: 700; }
+    .btn-wa:hover { background: #3EE07A; color: #0B2E17; text-decoration: none; }
+    .btn[disabled] { opacity: 0.65; cursor: wait; }
+    .form-error { display: none; background: #FFF5F5; border: 1px solid #FEB2B2; color: #9B2C2C; border-radius: 8px; padding: 0.7rem 0.8rem; margin: 0.7rem 0 0; font-size: 0.92rem; }
+    .form-error.show { display: block; }
+    .no-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 14px; padding: 1.3rem; text-align: center; }
+    .no-card h2 { color: #FFFFFF; font-size: 1.25rem; margin: 0 0 0.5rem; }
+    .no-card p { color: #E2E8F0; margin: 0 0 1rem; }
+    .no-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+    .hidden-field { position: absolute; left: -9999px; }
+    .apply-note { max-width: 560px; margin: 1.6rem auto 0; padding: 0 1.1rem; font-size: 0.82rem; color: #A0AEC0; text-align: center; line-height: 1.55; }
+    .mini-footer { background: #0B1220; color: #94A3B8; padding: 1.6rem 0 2.2rem; font-size: 0.82rem; text-align: center; }
+    .mini-footer a { color: #CBD5E0; margin: 0 0.5rem; }
+  </style>
+</head>
+<body data-wa-message="Hello, I would like to know more about becoming an insurance advisor with Sri Sowbhagya Associates.">
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo" style="display:flex; align-items:center; gap:0.6rem;">
+        <img src="/assets/images/ssa-logo-header.png" alt="" style="height: 44px; width: auto; display: block;">
+        <img src="/assets/images/ssa-wordmark.png" alt="Sri Sowbhagya Associates &mdash; Protection &amp; Growth" style="height: 34px; width: auto; display: block;">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="apply-hero">
+      <div class="apply-wrap">
+        <img class="apply-logo" src="/assets/images/ssa-logo-header.png" alt="Sri Sowbhagya Associates logo" width="84" height="84">
+        <h1>Are you interested in becoming a Life Insurance Advisor?</h1>
+        <p class="apply-te" lang="te">మీరు లైఫ్ ఇన్సూరెన్స్ అడ్వైజర్ కావాలనుకుంటున్నారా?</p>
+        <p class="apply-sub">Start by selecting an option.</p>
+
+        <fieldset class="choices">
+          <legend class="hidden-field">Are you interested in becoming a Life Insurance Advisor?</legend>
+          <label class="choice">
+            <span>Yes <small lang="te">/ అవును</small></span>
+            <input type="radio" name="choice" value="yes">
+            <span class="dot" aria-hidden="true"></span>
+          </label>
+          <label class="choice">
+            <span>No <small lang="te">/ కాదు</small></span>
+            <input type="radio" name="choice" value="no">
+            <span class="dot" aria-hidden="true"></span>
+          </label>
+        </fieldset>
+
+        <!-- YES: short form. Goes to Netlify Forms (the website pipeline), then on to SRK Prasad's WhatsApp. -->
+        <div class="panel" id="yes-panel" hidden aria-live="polite">
+          <form class="apply-form" id="advisor-form" name="advisor-interest" method="POST"
+                action="/insurance/careers/apply/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="advisor-interest">
+            <input type="hidden" name="interested" value="Yes">
+            <input type="hidden" name="source" value="direct" class="js-source">
+            <input type="hidden" name="utm_medium" value="" class="js-utm-medium">
+            <input type="hidden" name="utm_campaign" value="" class="js-utm-campaign">
+            <input type="hidden" name="utm_content" value="" class="js-utm-content">
+            <input type="hidden" name="page" value="/insurance/careers/apply/">
+            <p hidden style="display:none" aria-hidden="true"><label>Do not fill this in: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" value=""></label></p>
+
+            <h2>Great! A few quick details</h2>
+            <p class="hint-line">SRK Prasad will call or WhatsApp you. No cost, no obligation.</p>
+
+            <div class="field">
+              <label for="f-name">Your name <span lang="te">/ మీ పేరు</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Mobile number <span lang="te">/ మొబైల్ నంబర్</span></label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+\s\-]{10,15}" title="Enter a 10-digit mobile number" required>
+            </div>
+            <div class="field">
+              <label for="f-city">City / area <span lang="te">/ ఊరు</span></label>
+              <input id="f-city" name="city" type="text" autocomplete="address-level2" required>
+            </div>
+            <div class="field">
+              <label for="f-background">Your background</label>
+              <select id="f-background" name="background" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Homemaker</option>
+                <option>Retired professional</option>
+                <option>Business owner / self-employed</option>
+                <option>Employed (private / government)</option>
+                <option>Insurance / finance professional</option>
+                <option>Student / fresher</option>
+                <option>Already an IRDAI-licensed agent</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-education">Highest education</label>
+              <select id="f-education" name="education" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Below 10th</option>
+                <option>10th pass</option>
+                <option>12th / Intermediate</option>
+                <option>Graduate</option>
+                <option>Post-graduate</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-lang">Preferred language <span lang="te">/ భాష</span></label>
+              <select id="f-lang" name="language">
+                <option>Telugu</option>
+                <option>English</option>
+                <option>Hindi</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="consent"><input type="checkbox" name="consent" value="yes" required>
+                <span>I agree that Sri Sowbhagya Associates may contact me by phone or WhatsApp about becoming an insurance advisor. <a href="/privacy/">Privacy Policy</a></span></label>
+            </div>
+            <button class="btn btn-wa" type="submit" id="submit-btn">Submit &amp; continue on WhatsApp</button>
+            <p class="form-error" id="form-error" role="alert"></p>
+          </form>
+        </div>
+
+        <!-- NO: polite exit -->
+        <div class="panel" id="no-panel" hidden aria-live="polite">
+          <div class="no-card">
+            <h2>No problem, thank you for your time.</h2>
+            <p lang="te">సరే, మీ సమయానికి ధన్యవాదాలు.</p>
+            <p>If you ever want guidance on life, health or term insurance for your own family, we are happy to help.</p>
+            <div class="no-actions">
+              <a class="btn btn-wa" style="width:auto;" href="https://wa.me/919246582445?text=Hello%2C%20I%20would%20like%20guidance%20on%20insurance." target="_blank" rel="noopener">Chat on WhatsApp</a>
+              <a class="btn btn-secondary" style="width:auto;" href="/">Visit our website</a>
+            </div>
+          </div>
+        </div>
+        <noscript><style>#yes-panel[hidden], #no-panel[hidden] { display: block !important; }</style></noscript>
+      </div>
+
+      <p class="apply-note">Becoming an insurance advisor requires meeting IRDAI eligibility, completing the prescribed pre-licensing training and clearing the licensing exam. Advisor income is commission-based, depends on licensing, effort and client outcomes, and is not guaranteed.</p>
+    </section>
+  </main>
+
+  <footer class="mini-footer">
+    <div class="container">
+      <p><strong style="color:#E2E8F0;">Sri Sowbhagya Associates</strong> &middot; Promoter: Mr. SRK Prasad &middot; <a href="tel:+919246582445" style="margin:0;">+91 92465 82445</a></p>
+      <p style="margin-top:0.4rem;">IRDAI Leader Code (Recruitment): 5810649. Insurance is the subject matter of solicitation.</p>
+      <p style="margin-top:0.6rem;"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/disclosures/">Disclosures</a><a href="/grievance/">Grievance</a></p>
+      <p style="margin-top:0.6rem;">&copy; 2026 Sri Sowbhagya Associates. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var WA_NUMBER = '919246582445';
+      var params = new URLSearchParams(window.location.search);
+      function setVal(sel, v, n) { var el = document.querySelector(sel); if (el && v) el.value = String(v).slice(0, n || 60); }
+      // Where did this lead come from? e.g. ?utm_source=instagram&utm_campaign=advisor-oct
+      setVal('.js-source', params.get('src') || params.get('utm_source') || 'direct', 40);
+      setVal('.js-utm-medium', params.get('utm_medium'));
+      setVal('.js-utm-campaign', params.get('utm_campaign'));
+      setVal('.js-utm-content', params.get('utm_content'));
+
+      var yesPanel = document.getElementById('yes-panel');
+      var noPanel = document.getElementById('no-panel');
+      document.querySelectorAll('input[name="choice"]').forEach(function (r) {
+        r.addEventListener('change', function () {
+          var yes = r.value === 'yes' && r.checked;
+          yesPanel.hidden = !yes;
+          noPanel.hidden = yes;
+          var target = yes ? yesPanel : noPanel;
+          setTimeout(function () { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+        });
+      });
+
+      function waLink(d) {
+        var lines = [
+          'Hello Prasad garu, I am interested in becoming a Life Insurance Advisor with Sri Sowbhagya Associates.',
+          'Name: ' + d.name,
+          'City: ' + d.city,
+          'Background: ' + d.background,
+          'Education: ' + d.education,
+          'Mobile: ' + d.phone,
+          'Preferred language: ' + d.language,
+          'Please call or message me.'
+        ];
+        return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines.join('\n'));
+      }
+
+      var form = document.getElementById('advisor-form');
+      var btn = document.getElementById('submit-btn');
+      var err = document.getElementById('form-error');
+      var sending = false;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (sending) return;
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        sending = true; btn.disabled = true; btn.textContent = 'Sending…'; err.classList.remove('show');
+
+        var fd = new FormData(form);
+        var data = {
+          name: (fd.get('name') || '').toString().trim(),
+          phone: (fd.get('phone') || '').toString().trim(),
+          city: (fd.get('city') || '').toString().trim(),
+          background: (fd.get('background') || '').toString(),
+          education: (fd.get('education') || '').toString(),
+          language: (fd.get('language') || '').toString()
+        };
+        var wa = waLink(data);
+        try { sessionStorage.setItem('ssa_advisor_lead', JSON.stringify({ name: data.name, wa: wa })); } catch (x) {}
+
+        // 1) Website pipeline: Netlify Forms (form name "advisor-interest")
+        fetch(form.getAttribute('action'), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(fd).toString()
+        }).then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          window.location.href = '/insurance/careers/apply/thanks/';
+        }).catch(function () {
+          // 2) If the form could not be saved, never lose the lead: send it straight to WhatsApp.
+          err.textContent = 'We could not save the form just now, so we are opening WhatsApp so your details still reach SRK Prasad.';
+          err.classList.add('show');
+          setTimeout(function () { window.location.href = wa; }, 1200);
+        });
+      });
+    })();
+  </script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>
