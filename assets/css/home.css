@@ -1,0 +1,642 @@
+/* =====================================================================
+   Home page only: animated hero + rolling slider
+   Loaded by index.html after main.css
+   ===================================================================== */
+
+/* ---------- Hero frame ---------- */
+.hero-section.hero-live {
+  position: relative;
+  overflow: hidden;
+  padding: 3.25rem 0 3rem;
+}
+
+.hero-section.hero-live > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soft drifting light behind the content */
+.hero-live::before,
+.hero-live::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-live::before {
+  width: 460px;
+  height: 460px;
+  left: -140px;
+  top: -140px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 68%);
+  animation: orbA 14s ease-in-out infinite alternate;
+}
+
+.hero-live::after {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  bottom: -140px;
+  background: radial-gradient(circle, rgba(255, 224, 138, 0.6) 0%, rgba(255, 224, 138, 0) 68%);
+  animation: orbB 17s ease-in-out infinite alternate;
+}
+
+@keyframes orbA {
+  to { transform: translate(110px, 70px) scale(1.12); }
+}
+
+@keyframes orbB {
+  to { transform: translate(-100px, -60px) scale(1.15); }
+}
+
+/* ---------- Headline: words flash in one after another ---------- */
+.hero-live .hw {
+  display: inline-block;
+  animation: hwIn 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 0.11s + 0.1s);
+}
+
+@keyframes hwIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.94);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+    text-shadow: 0 0 22px rgba(255, 255, 255, 0.95), 0 0 6px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* ---------- Sub-headline: fades up, then the three key phrases get highlighted ---------- */
+.hero-live .hero-subtitle {
+  animation: fadeUp 0.8s ease both;
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-live .hl {
+  font-weight: 700;
+  padding: 0 0.12em;
+  border-radius: 2px;
+  background-image: linear-gradient(transparent 56%, #FFE08A 56%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  animation: hlSweep 0.7s ease forwards;
+  animation-delay: var(--d, 1.4s);
+}
+
+@keyframes hlSweep {
+  to { background-size: 100% 100%; }
+}
+
+/* ---------- Buttons pop in ---------- */
+.hero-live .cta-group .btn {
+  animation: popIn 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.25) both;
+}
+
+.hero-live .cta-group .btn:nth-child(1) { animation-delay: 1.25s; }
+.hero-live .cta-group .btn:nth-child(2) { animation-delay: 1.4s; }
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.8) translateY(10px); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* =====================================================================
+   Rolling slider
+   ===================================================================== */
+.hero-slider {
+  position: relative;
+  max-width: 1040px;
+  margin: 2.25rem auto 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0F2744;
+  box-shadow: 0 18px 40px rgba(15, 39, 68, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  text-align: left;
+  animation: sliderIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 1.45s;
+}
+
+@keyframes sliderIn {
+  from { opacity: 0; transform: translateY(34px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hs-viewport {
+  position: relative;
+  height: 410px;
+  height: clamp(360px, 42vw, 440px);
+}
+
+/* "Paused - click to open" hint, shown while the cursor or keyboard focus is on the slider */
+.hs-hint {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.9rem;
+  z-index: 5;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0F1F3D;
+  background: rgba(236, 201, 75, 0.95);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.hero-slider.show-hint .hs-hint {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Slides ---------- */
+.hs-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 46fr) minmax(0, 54fr);
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0s linear 0.7s;
+}
+
+.hs-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  transition: opacity 0.7s ease, visibility 0s linear 0s;
+}
+
+.hs-slide:hover,
+.hs-slide:focus {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.hs-slide:focus-visible {
+  outline: 3px solid #ECC94B;
+  outline-offset: -3px;
+}
+
+/* Text panel */
+.hs-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 2.2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0F2744 0%, #1A365D 100%);
+}
+
+.hs-text--green {
+  background: linear-gradient(135deg, #0B3D2A 0%, #0F5A3A 100%);
+}
+
+.hs-tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0F1F3D;
+  background: var(--accent, #ECC94B);
+}
+
+.hs-title {
+  display: block;
+  font-size: 1.9rem;
+  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.hs-desc {
+  display: block;
+  max-width: 36ch;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #CBD5E1;
+}
+
+.hs-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F1F3D;
+  background: #ECC94B;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hs-cta .arr {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+/* Cursor on the slide: the call-to-action lights up and the arrow nudges forward */
+.hs-slide:hover .hs-cta,
+.hs-slide:focus-visible .hs-cta {
+  background: #F6D776;
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 5px rgba(236, 201, 75, 0.35);
+}
+
+.hs-slide:hover .hs-cta .arr,
+.hs-slide:focus-visible .hs-cta .arr {
+  transform: translateX(6px);
+}
+
+/* Text animates in each time a slide becomes active */
+.hs-slide.is-active .hs-tag,
+.hs-slide.is-active .hs-title,
+.hs-slide.is-active .hs-desc,
+.hs-slide.is-active .hs-cta {
+  animation: txtIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hs-slide.is-active .hs-tag   { animation-delay: 0.05s; }
+.hs-slide.is-active .hs-title { animation-delay: 0.15s; }
+.hs-slide.is-active .hs-desc  { animation-delay: 0.25s; }
+.hs-slide.is-active .hs-cta   { animation-delay: 0.35s; }
+
+@keyframes txtIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Media panel */
+.hs-media {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background-color: #12365F;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hs-slide.is-active .hs-media {
+  animation: mediaIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes mediaIn {
+  from { opacity: 0; transform: translateX(26px) scale(1.03); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hs-media--top {
+  background-position: center top;
+}
+
+/* Media panel holding a framed picture */
+.hs-media--card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background-image: radial-gradient(circle at 30% 25%, #2B6CB0 0%, #12365F 70%);
+}
+
+.hs-media--card img {
+  display: block;
+  max-width: 100%;
+  max-height: 290px;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Media panel with calculator tiles */
+.hs-media--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-content: center;
+  padding: 1.6rem;
+  background-image: radial-gradient(circle at 70% 20%, #5B3FA8 0%, #1E2A5E 72%);
+}
+
+.hs-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1rem 0.5rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hs-chip i {
+  font-style: normal;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Media panel for WhatsApp */
+.hs-media--wa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #FFFFFF;
+  background-image: linear-gradient(135deg, #128C4A 0%, #25D366 100%);
+}
+
+.hs-media--wa svg {
+  width: 38%;
+  max-width: 150px;
+  height: auto;
+}
+
+.hs-wa-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- First slide: full-width picture with a short caption bar ---------- */
+@media (min-width: 720px) {
+  .hs-slide--wide {
+    display: block;
+  }
+
+  .hs-slide--wide .hs-media {
+    position: absolute;
+    inset: 0;
+    background-position: center 35%;
+  }
+
+  .hs-slide--wide .hs-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.6rem;
+    background: linear-gradient(to top, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0) 100%);
+  }
+
+  .hs-slide--wide .hs-title {
+    font-size: 1.25rem;
+  }
+
+  .hs-slide--wide .hs-cta {
+    margin-top: 0;
+    align-self: center;
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Controls bar ---------- */
+.hs-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0.9rem;
+  background: #0B1D36;
+}
+
+.hs-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hs-progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ECC94B;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hero-slider.is-ready .hs-progress i {
+  animation: hsProg var(--hs-dur, 5500ms) linear forwards;
+}
+
+.hero-slider.is-paused .hs-progress i {
+  animation-play-state: paused;
+}
+
+@keyframes hsProg {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.hs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  font-family: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hs-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hs-btn:focus-visible,
+.hs-dot:focus-visible {
+  outline: 2px solid #ECC94B;
+  outline-offset: 2px;
+}
+
+.hs-dots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.hs-dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.38);
+  cursor: pointer;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+/* Bigger invisible tap area around each dot */
+.hs-dot::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+}
+
+.hs-dot[aria-current="true"] {
+  width: 24px;
+  background: #ECC94B;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 719px) {
+  .hero-section.hero-live {
+    padding: 2.25rem 0 2rem;
+  }
+
+  .hs-viewport {
+    height: 490px;
+  }
+
+  .hs-slide {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 190px minmax(0, 1fr);
+  }
+
+  .hs-media {
+    order: -1;
+  }
+
+  .hs-text {
+    justify-content: flex-start;
+    gap: 0.55rem;
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+
+  .hs-title {
+    font-size: 1.4rem;
+  }
+
+  .hs-desc {
+    font-size: 0.95rem;
+  }
+
+  .hs-media--card img {
+    max-height: 160px;
+  }
+
+  .hs-media--grid {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .hs-chip {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .hs-chip i {
+    font-size: 1.4rem;
+  }
+
+  .hs-media--wa svg {
+    width: 70px;
+  }
+
+  .hs-wa-num {
+    font-size: 1.1rem;
+  }
+
+  /* First slide: show the whole picture instead of cropping it */
+  .hs-slide--wide .hs-media {
+    background-size: contain;
+    background-color: #0B2B4D;
+  }
+
+  .hs-controls {
+    gap: 0.5rem;
+    padding: 0.55rem 0.6rem;
+  }
+
+  .hs-dots {
+    gap: 0.4rem;
+  }
+
+  .hs-hint {
+    display: none;
+  }
+}
+
+/* ---------- Respect "reduce motion" ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-live::before,
+  .hero-live::after,
+  .hero-live .hw,
+  .hero-live .hero-subtitle,
+  .hero-live .hl,
+  .hero-live .cta-group .btn,
+  .hero-slider,
+  .hs-slide.is-active .hs-tag,
+  .hs-slide.is-active .hs-title,
+  .hs-slide.is-active .hs-desc,
+  .hs-slide.is-active .hs-cta,
+  .hs-slide.is-active .hs-media,
+  .hero-slider.is-ready .hs-progress i {
+    animation: none;
+  }
+
+  .hero-live .hl {
+    background-size: 100% 100%;
+  }
+
+  .hs-slide {
+    transition: none;
+  }
+}

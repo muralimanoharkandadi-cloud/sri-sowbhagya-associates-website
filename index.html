@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="K M Manohar Insights">
+  <!-- Website designed, developed and deployed by K M Manohar Insights (kmmanoharinsights.netlify.app), an offshoot of PremAnand SecureVest Consultants -->
   <title>Sri Sowbhagya Associates | Independent Insurance, Mutual Funds & Gold Investments</title>
   <meta name="description" content="Explore structured insurance protection, mutual fund strategies, and gold investments with Sri Sowbhagya Associates. Promoted by Mr. SRK Prasad.">
   <link rel="canonical" href="https://srisowbhagyaassociates.com/">
@@ -14,6 +16,7 @@
 
   <link rel="icon" type="image/png" href="/assets/images/ssa-favicon.png">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
   <style>
     /* Home page hero: deep sky blue background, dark blue text and buttons for readable contrast */
     .hero-section { background: linear-gradient(135deg, #00BFFF 0%, #009FE3 100%); color: var(--primary); }
@@ -75,21 +78,69 @@
     </div>
   </header>
 
-  <section class="hero-section">
+  <section class="hero-section hero-live">
     <div class="container">
-      <h1 class="hero-title">Protection & Growth for What Matters Most.</h1>
-      <p class="hero-subtitle">Explore objective insurance, mutual fund portfolios, and gold investment solutions tailored to your responsibilities and stage of life.</p>
+      <h1 class="hero-title"><span class="hw" style="--i:0">Protection</span> <span class="hw" style="--i:1">&amp;</span> <span class="hw" style="--i:2">Growth</span> <span class="hw" style="--i:3">for</span> <span class="hw" style="--i:4">What</span> <span class="hw" style="--i:5">Matters</span> <span class="hw" style="--i:6">Most.</span></h1>
+      <p class="hero-subtitle">Explore objective <span class="hl" style="--d:1.35s">insurance</span>, <span class="hl" style="--d:1.65s">mutual fund portfolios</span>, and <span class="hl" style="--d:1.95s">gold investment solutions</span> tailored to your responsibilities and stage of life.</p>
       <div class="cta-group">
         <a href="#explore" class="btn btn-primary">Find What You Need</a>
         <a href="/contact.html" class="btn btn-secondary">Talk to Us</a>
       </div>
-      <img src="/assets/images/home-hero-sunset.jpg" alt="Family watching the sunset over the city, with Insurance, Mutual Funds, and Gold Investment icons" style="width:100%; max-width:960px; display:block; margin: 2.5rem auto 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+
+      <div class="hero-slider" id="heroSlider" role="region" aria-roledescription="carousel" aria-label="Our services and features">
+        <div class="hs-viewport" aria-live="off">
+        <a class="hs-slide hs-slide--wide is-active" href="#explore" data-name="All services">
+          <span class="hs-text"><span class="hs-title">Insurance &middot; Mutual Funds &middot; Gold Investments</span><span class="hs-cta">See all services <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media" style="background-image:url('/assets/images/home-hero-sunset.jpg')" aria-hidden="true"></span>
+        </a>
+        <a class="hs-slide" href="/insurance/" data-name="Insurance" aria-hidden="true" tabindex="-1" style="--accent:#63B3ED">
+          <span class="hs-text"><span class="hs-tag">Insurance</span><span class="hs-title">Insurance Solutions</span><span class="hs-desc">Life, health, motor, and property protection.</span><span class="hs-cta">Explore Insurance <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media" data-bg="/assets/images/insurance-categories.jpg" aria-hidden="true"></span>
+        </a>
+        <a class="hs-slide" href="/mutual-funds/" data-name="Mutual Funds" aria-hidden="true" tabindex="-1" style="--accent:#38D9A9">
+          <span class="hs-text"><span class="hs-tag">Mutual Funds</span><span class="hs-title">Mutual Funds &amp; SIPs</span><span class="hs-desc">Equity, debt, and hybrid portfolios for long-term growth.</span><span class="hs-cta">Explore Mutual Funds <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media" data-bg="/assets/images/mf-hero.jpg" aria-hidden="true"></span>
+        </a>
+        <a class="hs-slide" href="/gold-investments/" data-name="Gold Investments" aria-hidden="true" tabindex="-1" style="--accent:#ECC94B">
+          <span class="hs-text"><span class="hs-tag">Gold</span><span class="hs-title">Gold Investments</span><span class="hs-desc">SGB, Gold ETFs, and Gold Mutual Fund guidance.</span><span class="hs-cta">Explore Gold Investments <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media" data-bg="/assets/images/gold-hero.jpg" aria-hidden="true"></span>
+        </a>
+        <a class="hs-slide" href="/nri-investments/" data-name="NRI Investment Guide" aria-hidden="true" tabindex="-1" style="--accent:#F6AD55">
+          <span class="hs-text"><span class="hs-tag">For NRIs</span><span class="hs-title">NRI Investment Guide</span><span class="hs-desc">IRDAI, FEMA, SEBI and RBI rules for NRIs investing in Indian insurance, mutual funds and gold.</span><span class="hs-cta">Read the NRI guide <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media hs-media--card"><img src="/assets/images/nri/hero-nri-guide.jpg" alt="" width="307" height="256" loading="lazy"></span>
+        </a>
+        <a class="hs-slide" href="/tools/" data-name="Planning Calculators" aria-hidden="true" tabindex="-1" style="--accent:#B794F4">
+          <span class="hs-text"><span class="hs-tag">Free tools</span><span class="hs-title">Planning Calculators</span><span class="hs-desc">Work out term, health, motor and property cover in a few minutes.</span><span class="hs-cta">Try the calculators <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media hs-media--grid" aria-hidden="true"><span class="hs-chip"><i>&#128737;&#65039;</i>Term</span><span class="hs-chip"><i>&#10084;&#65039;</i>Health</span><span class="hs-chip"><i>&#128663;</i>Motor</span><span class="hs-chip"><i>&#127968;</i>Property</span></span>
+        </a>
+        <a class="hs-slide" href="https://wa.me/919246582445?text=Hello%20Sri%20Sowbhagya%20Associates%2C%20I%20would%20like%20to%20know%20more." target="_blank" rel="noopener" data-name="WhatsApp Connect" aria-hidden="true" tabindex="-1" style="--accent:#68D391">
+          <span class="hs-text hs-text--green"><span class="hs-tag">WhatsApp Connect</span><span class="hs-title">Chat with us on WhatsApp</span><span class="hs-desc">Ask a question or request a call back. Message us directly.</span><span class="hs-cta">Open WhatsApp <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media hs-media--wa" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg><span class="hs-wa-num">+91 92465 82445</span></span>
+        </a>
+        <a class="hs-slide" href="/bni/" data-name="BNI Connect" aria-hidden="true" tabindex="-1" style="--accent:#FC8181">
+          <span class="hs-text"><span class="hs-tag">BNI Connect</span><span class="hs-title">For BNI Chapter Members</span><span class="hs-desc">Protection for your family and your business, from someone in your chapter.</span><span class="hs-cta">Open BNI page <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media hs-media--card"><img src="/assets/images/bni-qr-card.png" alt="" width="1200" height="1600" loading="lazy"></span>
+        </a>
+        <a class="hs-slide" href="/insurance/careers/" data-name="Recruitment Drive" aria-hidden="true" tabindex="-1" style="--accent:#4FD1C5">
+          <span class="hs-text"><span class="hs-tag">Recruitment Drive</span><span class="hs-title">Become an Insurance Advisor</span><span class="hs-desc">Build a licensed advisory career with training and mentorship from day one.</span><span class="hs-cta">Join our team <span class="arr" aria-hidden="true">&rarr;</span></span></span>
+          <span class="hs-media hs-media--top" data-bg="/assets/images/srk-prasad-professional.jpg" aria-hidden="true"></span>
+        </a>
+          <span class="hs-hint" aria-hidden="true">&#10074;&#10074; Paused &mdash; click to open</span>
+        </div>
+        <div class="hs-controls">
+          <span class="hs-progress" aria-hidden="true"><i></i></span>
+          <button type="button" class="hs-btn hs-prev" aria-label="Previous slide">&#8249;</button>
+          <div class="hs-dots"></div>
+          <button type="button" class="hs-btn hs-next" aria-label="Next slide">&#8250;</button>
+          <button type="button" class="hs-btn hs-pause" aria-label="Pause slideshow">&#10074;&#10074;</button>
+        </div>
+      </div>
     </div>
   </section>
 
   <section style="background: var(--primary); padding: 1.1rem 0;">
     <div class="container" style="display:flex; align-items:center; justify-content:center; gap:1.1rem; flex-wrap:wrap; text-align:left;">
-      <img src="/assets/images/bni-qr-card.png" alt="QR code for BNI members" style="width:56px; height:56px; object-fit:cover; border-radius:8px; flex-shrink:0;">
+      <img src="/assets/images/bni-qr-card.png" alt="" style="width:56px; height:56px; object-fit:cover; border-radius:8px; flex-shrink:0;">
       <div>
         <p style="color:#FFFFFF; font-weight:700; margin:0; font-size:1rem;">For BNI Chapter Members</p>
         <p style="color:#CBD5E1; margin:0; font-size:0.9rem;">Scan or tap for direct contact, services, and referrals.</p>
@@ -203,11 +254,13 @@
       <div style="border-top: 1px solid #1E293B; padding-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #64748B;">
         <p>Disclaimer: Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Insurance is the subject matter of solicitation. Information provided on this website is for educational purposes and does not constitute formal financial advice.</p>
         <p style="margin-top: 0.5rem;">© 2026 Sri Sowbhagya Associates. All rights reserved.</p>
+        <p class="builder-credit">Website designed, developed &amp; deployed by <a href="https://kmmanoharinsights.netlify.app" target="_blank" rel="noopener"><strong>K M Manohar Insights</strong></a> &mdash; an offshoot of PremAnand SecureVest Consultants.<br>AI-Powered Business Solutions: Web &middot; CRM &middot; HRM &middot; AI Automation &middot; <a href="tel:+919052040040">9052040040</a></p>
       </div>
     </div>
   </footer>
 
   <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/whatsapp.js" defer></script>
+  <script src="/assets/js/home-hero.js" defer></script>
 </body>
 </html>

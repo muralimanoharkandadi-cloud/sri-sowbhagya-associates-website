@@ -449,3 +449,29 @@ a:hover, a:focus {
   color: var(--primary);
   text-decoration: none;
 }
+
+
+/* Builder credit shown at the very bottom of every footer */
+.builder-credit {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed #1E293B;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: #64748B;
+  text-align: center;
+}
+
+.builder-credit a {
+  color: #94A3B8;
+  margin: 0 !important;
+}
+
+.builder-credit a:hover {
+  color: #FFFFFF;
+}
+
+.builder-credit strong {
+  color: #CBD5E1;
+  font-weight: 600;
+}
