@@ -25,18 +25,6 @@
 
     var title = card.getAttribute('data-title') || 'video';
 
-    function showBanner() {
-      video.controls = false;
-      card.classList.remove('is-playing');
-      card.classList.add('is-idle');
-    }
-
-    function showPlayer() {
-      video.controls = true;
-      card.classList.remove('is-idle');
-      card.classList.add('is-playing');
-    }
-
     /* Swap the browser's own controls for one big play button until the visitor starts the video */
     video.removeAttribute('controls');
     var button = document.createElement('button');
@@ -50,9 +38,27 @@
     frame.appendChild(button);
     card.classList.add('is-idle');
 
+    /* Back to the banner: play button visible, browser controls off */
+    function showBanner() {
+      video.controls = false;
+      button.hidden = false;
+      card.classList.remove('is-playing');
+      card.classList.add('is-idle');
+    }
+
+    /* Playing (or paused partway): the play button disappears and the browser controls take over */
+    function showPlayer() {
+      video.controls = true;
+      button.hidden = true;
+      card.classList.remove('is-idle');
+      card.classList.add('is-playing');
+    }
+
+
     button.addEventListener('click', function () {
       pauseOthers(video);
       showPlayer();
+      try { video.focus({ preventScroll: true }); } catch (e) { /* focus is a nicety only */ }
       var attempt = video.play();
       if (attempt && typeof attempt.catch === 'function') {
         attempt.catch(function () { showBanner(); }); /* browser refused to play: back to the banner */
@@ -70,8 +76,12 @@
 
     /* Finished: go back to the banner and the play button */
     video.addEventListener('ended', function () {
+      var hadFocus = card.contains(document.activeElement);
       showBanner();
       video.load(); /* resets the player so the banner shows again */
+      if (hadFocus) {
+        try { button.focus({ preventScroll: true }); } catch (e) { /* focus is a nicety only */ }
+      }
     });
 
     players.push({ video: video, card: card });

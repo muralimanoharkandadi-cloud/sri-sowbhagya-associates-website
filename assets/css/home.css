@@ -816,6 +816,12 @@
   display: none;
 }
 
+/* While a video is playing (or paused partway) the big play button is gone, so it never covers the picture or the video's own controls */
+.vid-card.is-playing .vid-play,
+.vid-play[hidden] {
+  display: none;
+}
+
 .vid-cap {
   max-width: 260px;
   margin: 0 auto;
