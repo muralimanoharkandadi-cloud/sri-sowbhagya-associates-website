@@ -2,7 +2,9 @@
    - Rolls automatically through the slides.
    - Stops while the cursor is on the slider (or keyboard focus is inside it, or a finger is down),
      and every slide is a link, so a click opens that page.
-   - Arrows, dots, swipe, and left/right keys also move between slides.
+   - Every slide change uses a different transition effect from the one before.
+   - Swipe and the left/right keys also move between slides (the on-screen arrows, dots and
+     pause button are hidden; they only appear for keyboard users who tab into them).
    - Respects "reduce motion": the slider then starts paused and the visitor can press Play.
    Markup lives in index.html (#heroSlider). */
 (function () {
@@ -19,7 +21,6 @@
   var prevBtn = root.querySelector('.hs-prev');
   var nextBtn = root.querySelector('.hs-next');
   var pauseBtn = root.querySelector('.hs-pause');
-  var progress = root.querySelector('.hs-progress i');
 
   var DURATION = parseInt(root.getAttribute('data-interval'), 10) || 5500;
   var START_DELAY = parseInt(root.getAttribute('data-start-delay'), 10);
@@ -43,6 +44,36 @@
 
   var dots = [];
 
+  /* ---------- transition effects: a different one every time ---------- */
+
+  var EFFECTS = ['fade', 'slide-left', 'slide-right', 'slide-up', 'zoom-in', 'zoom-out', 'wipe', 'flip', 'blur'];
+  var FX_MS = 900;          /* a little longer than the CSS animation (0.85s) */
+  var bag = [];
+  var lastFx = '';
+  var fxTimer = null;
+
+  /* Shuffled "bag": every effect is used once before any repeats, and the same one never runs twice in a row */
+  function nextFx() {
+    if (reduceMotion) return 'none';
+    if (!bag.length) {
+      bag = EFFECTS.slice();
+      for (var i = bag.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = bag[i]; bag[i] = bag[j]; bag[j] = t;
+      }
+      if (bag[bag.length - 1] === lastFx) {
+        var t2 = bag[0]; bag[0] = bag[bag.length - 1]; bag[bag.length - 1] = t2;
+      }
+    }
+    lastFx = bag.pop();
+    return lastFx;
+  }
+
+  function clearFx() {
+    if (fxTimer) { clearTimeout(fxTimer); fxTimer = null; }
+    slides.forEach(function (s) { s.classList.remove('is-entering', 'is-leaving'); });
+  }
+
   /* ---------- helpers ---------- */
 
   function playing() {
@@ -63,13 +94,6 @@
       timer = null;
       go(index + 1);
     }, remaining);
-  }
-
-  function restartProgress() {
-    if (!progress) return;
-    progress.style.animation = 'none';
-    void progress.offsetWidth; /* force a reflow so the bar restarts */
-    progress.style.animation = '';
   }
 
   function loadBg(slide) {
@@ -121,17 +145,27 @@
     n = ((n % count) + count) % count;
 
     if (n !== index) {
-      setSlideState(slides[index], false);
+      var leaving = slides[index];
+      clearFx(); /* finish any transition that is still running */
+      var fx = nextFx();
+      root.setAttribute('data-fx', fx);
+
+      setSlideState(leaving, false);
       index = n;
       loadBg(slides[index]);
       loadBg(slides[(index + 1) % count]);
       setSlideState(slides[index], true);
+
+      if (fx !== 'none') {
+        leaving.classList.add('is-leaving');
+        slides[index].classList.add('is-entering');
+        fxTimer = setTimeout(clearFx, FX_MS);
+      }
       updateDots();
     }
 
     remaining = DURATION;
     clearTimer();
-    restartProgress();
     if (playing()) schedule();
   }
 
@@ -156,7 +190,6 @@
   loadBg(slides[1]);
   updateDots();
   updatePauseButton();
-  root.style.setProperty('--hs-dur', DURATION + 'ms');
 
   /* Fetch the remaining slide pictures once the page is idle */
   function preloadAll() {
@@ -290,4 +323,70 @@
     remaining = DURATION;
     sync();
   }, reduceMotion ? 0 : START_DELAY);
+})();
+
+/* Headline flash.
+   The opening animation plays once on load. After that the headline flashes again
+   - every 15 seconds while it is on screen, and
+   - whenever it comes back into view after being scrolled out of sight. */
+(function () {
+  'use strict';
+
+  var hero = document.querySelector('.hero-live');
+  var title = hero && hero.querySelector('.hero-title');
+  if (!hero || !title) return;
+
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if (reduceMotion) return;
+
+  var INTERVAL = parseInt(hero.getAttribute('data-flash-interval'), 10) || 15000;
+  var SETTLE = 3300;   /* the opening animation lasts about 2.7s */
+  var REPLAY_MS = 2600;
+
+  var settled = false;  /* opening animation finished */
+  var visible = true;   /* headline mostly on screen */
+  var wasOut = false;   /* headline has been completely out of view */
+  var timer = null;
+  var clearTimer = null;
+
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(tick, INTERVAL);
+  }
+
+  function flash() {
+    if (!settled || !visible || document.hidden) return;
+    hero.classList.remove('flash-replay');
+    void hero.offsetWidth; /* force a reflow so the animation restarts */
+    hero.classList.add('flash-replay');
+    clearTimeout(clearTimer);
+    clearTimer = setTimeout(function () { hero.classList.remove('flash-replay'); }, REPLAY_MS);
+    schedule(); /* the next 15 seconds are counted from this flash */
+  }
+
+  function tick() {
+    if (settled && visible && !document.hidden) flash();
+    else schedule();
+  }
+
+  setTimeout(function () {
+    settled = true;
+    hero.classList.add('is-settled');
+  }, SETTLE);
+
+  schedule();
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      var e = entries[entries.length - 1];
+      visible = e.intersectionRatio >= 0.5;
+      if (e.intersectionRatio === 0) {
+        wasOut = true;
+      } else if (visible && wasOut) {
+        wasOut = false;
+        flash();
+      }
+    }, { threshold: [0, 0.5] });
+    io.observe(title);
+  }
 })();
