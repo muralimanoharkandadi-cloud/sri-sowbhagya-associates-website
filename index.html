@@ -153,7 +153,8 @@
       <h2 class="section-title">Explore Sri Sowbhagya Associates</h2>
       <p class="section-subtitle">Quick access to our services and how to reach us.</p>
 
-      <div class="card-flex-center">
+      <div class="explore-grid">
+      <div class="explore-top">
         <div class="backdrop-card" style="min-height: 220px; background-image: url('/assets/images/insurance-categories.jpg');">
           <div class="backdrop-card-content">
             <h3 class="card-title">Insurance Solutions</h3>
@@ -186,13 +187,43 @@
           </div>
         </div>
 
-        <div class="backdrop-card" style="min-height: 220px; background-image: url('/assets/images/talk-to-us-consultation.jpg');">
+      </div>
+
+      <div class="explore-bottom">
+        <!-- VIDEO WINDOW (left).  To change this video: put the new files in assets/videos/ (the .mp4 and a banner .jpg),
+             then update the file names, title, subtitle and duration below. The banner is what shows before playing and after it ends. -->
+        <figure class="vid-card vid-card--left" data-title="Tata AIA Shubh Flexi Income Plan">
+          <div class="vid-frame">
+            <video controls preload="none" playsinline poster="/assets/videos/shubh-flexi-income-plan.jpg" aria-label="Video: Tata AIA Shubh Flexi Income Plan">
+              <source src="/assets/videos/shubh-flexi-income-plan.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="/assets/videos/shubh-flexi-income-plan.mp4">Download it</a> instead.
+            </video>
+            <span class="vid-dur" aria-hidden="true">1:37</span>
+          </div>
+          <figcaption class="vid-cap"><strong>Tata AIA Shubh Flexi Income Plan</strong><span>Plan overview</span></figcaption>
+        </figure>
+
+        <div class="backdrop-card talk-card" style="background-image: url('/assets/images/talk-to-us-consultation.jpg');">
           <div class="backdrop-card-content">
             <h3 class="card-title">Talk to Us</h3>
             <p class="card-desc">Phone, office, and enquiry details.</p>
             <a href="/contact.html">Contact Us →</a>
           </div>
         </div>
+
+        <!-- VIDEO WINDOW (right).  To change this video: put the new files in assets/videos/ (the .mp4 and a banner .jpg),
+             then update the file names, title, subtitle and duration below. The banner is what shows before playing and after it ends. -->
+        <figure class="vid-card vid-card--right" data-title="Why Life Insurance Matters">
+          <div class="vid-frame">
+            <video controls preload="none" playsinline poster="/assets/videos/tata-aia-plan.jpg" aria-label="Video: Why Life Insurance Matters">
+              <source src="/assets/videos/tata-aia-plan.mp4" type="video/mp4">
+              Your browser cannot play this video. <a href="/assets/videos/tata-aia-plan.mp4">Download it</a> instead.
+            </video>
+            <span class="vid-dur" aria-hidden="true">0:57</span>
+          </div>
+          <figcaption class="vid-cap"><strong>Why Life Insurance Matters</strong><span>A short guide in Telugu</span></figcaption>
+        </figure>
+      </div>
       </div>
     </div>
   </section>
@@ -261,5 +292,6 @@
   <script src="/assets/js/nav.js"></script>
   <script src="/assets/js/whatsapp.js" defer></script>
   <script src="/assets/js/home-hero.js" defer></script>
+  <script src="/assets/js/home-videos.js" defer></script>
 </body>
 </html>
